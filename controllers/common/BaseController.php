@@ -31,6 +31,7 @@ class BaseController extends ActiveController
 	* @param $message 错误信息
 	*/
 	public static function renderJson( $data , $state=1 , $code=200 , $message=null ){
+		Yii::$app->response->statusCode = $code;
 		$response =[
 			'success' => $state?"success":"fail",
 			'code' 	  => $code,

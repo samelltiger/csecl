@@ -40,7 +40,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'user/error',
+            'errorAction' => 'token/err',
         ],
         'urlManager' =>[
             'enablePrettyUrl' => true,
@@ -51,11 +51,14 @@ return [
                     'class' => 'yii\rest\UrlRule',
                     // api访问时，必须使用控制器的复数形式，如 localhost/sites , 否则会报错（页面未找到）
                     'controller' => [
-                            "site"
+                            "site","v1/goods","v1/token"
                             ],
                     'extraPatterns' => [
-                            'GET test' => 'test',       //测试
-                            'GET ' => 'test',           //测试 
+                            'GET test'      => 'test',       //测试
+                            'GET '          => 'index',           //测试 
+                            "GET <email:[\w\d_-]+@[\w\d_-]+(\.[\w\d_-]+)+$>"    => "verification",
+                            'POST <email:[\w\d_-]+@[\w\d_-]+(\.[\w\d_-]+)+$>'          => 'new',           //测试 
+                            "GET err"       => "err",
                             /*
                                 以下为url配置示例，请参考：
 
