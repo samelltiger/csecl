@@ -51,7 +51,9 @@ return [
                     'class' => 'yii\rest\UrlRule',
                     // api访问时，必须使用控制器的复数形式，如 localhost/sites , 否则会报错（页面未找到）
                     'controller' => [
-                            "site","v1/goods","v1/token"
+                            "site","v1/goods","v1/token",
+
+                            'application','notice','rource',
                             ],
                     'extraPatterns' => [
                             'GET test'      => 'test',       //测试
@@ -69,6 +71,19 @@ return [
                             'DELETE ' => 'del',
                             'PUT '  =>  'change', 
                             */
+
+                            //application notice rource
+                            'GET show/<page:\d+>'     => 'show',
+                            'GET simple/<page:\d+>'     => 'simple',
+                            'GET get/<id:\d+>'     => 'get',
+                            'POST createapp'     => 'createapp',
+                            'POST add'  => 'add',
+                            'POST upda'  => 'upda',
+                            'POST dele'  => 'dele',
+
+                            //rource
+                            'GET getrou/<type:\d+>'  => 'getrou',
+
                     ],
                 ],
             ],
