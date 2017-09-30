@@ -40,7 +40,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'token/err',
+            'errorAction' => 'tokens/err',
         ],
         'urlManager' =>[
             'enablePrettyUrl' => true,
@@ -59,8 +59,9 @@ return [
                             'GET test'      => 'test',       //测试
                             'GET '          => 'index',           //测试 
                             "GET <email:[\w\d_-]+@[\w\d_-]+(\.[\w\d_-]+)+$>"    => "verification",
-                            'POST <email:[\w\d_-]+@[\w\d_-]+(\.[\w\d_-]+)+$>'          => 'new',           //测试 
+                            'POST <email:[\w\d_-]+@[\w\d_-]+(\.[\w\d_-]+)+$>'   => 'new',           //测试 
                             "GET err"       => "err",
+                            "GET <action_id:[.]+>"                              => "err",
                             /*
                                 以下为url配置示例，请参考：
 
