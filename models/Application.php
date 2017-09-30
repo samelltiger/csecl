@@ -47,7 +47,6 @@ class Application extends \yii\db\ActiveRecord
         return [
             [['name', 'number', 'address', 'email','phone', 'qq', 'college', 'major', 'grade', 'english_grade', 'math_grade', 'direct', 'created', 'updated'], 'required'],
             [['sex', 'english_grade', 'math_grade', 'status', 'created', 'updated'], 'integer'],
-            [['referrer_info'], 'string'],
             [['number'],'unique'],
             [['name', 'college', 'major'], 'string', 'max' => 20],
             [['number'], 'string', 'max' => 12],
@@ -78,7 +77,6 @@ class Application extends \yii\db\ActiveRecord
             'english_grade' => 'English Grade',
             'math_grade' => 'Math Grade',
             'referrer' => 'Referrer',
-            'referrer_info' => 'Referrer Info',
             'direct' => 'Direct',
             'status' => 'Status',
             'created' => 'Created',
