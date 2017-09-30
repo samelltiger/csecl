@@ -76,6 +76,9 @@ class ApplicationController extends BaseController
     public function actionCreateapp(){
         $data = Yii::$app->request->post();
         $model = new Application();
+        $data['application']['sex'] = (int)$data['application']['sex'];//前端返str要转转成int
+        $data['application']['english_grade'] = (int)$data['application']['english_grade'];
+        $data['application']['math_grade'] = (int)$data['application']['math_grade'];
         $model->setAttributes($data['application']);
         $model->created = time();
         $model->updated = time();
