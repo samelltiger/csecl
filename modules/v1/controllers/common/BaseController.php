@@ -13,19 +13,39 @@ class BaseController extends \csecl\controllers\common\BaseController
     /**
     * 检查请求接口方法是否需要带token
     */
-    public function checkAccess($action, $model = null, $params = [])
-    {
-        $allowAction = Yii::$app->params['allowAction'];
+    // public function checkAccess($action, $model = null, $params = [])
+    // {
+    //     $allowAction = Yii::$app->params['allowAction'];
 
-        if ( \in_array( $action , (array)$allowAction) ) {
-            return;
-        }
+    //     if ( \in_array( $action , (array)$allowAction) ) {
+    //         return;
+    //     }
 
-        throw new \yii\web\ForbiddenHttpException(sprintf('You can only %s articles that you\'ve created.', $action));
-    }
+    //     throw new \yii\web\ForbiddenHttpException(sprintf('You can only %s articles that you\'ve created.', $action));
+    // }
 
     public function beforeAction($action){
-        return $this->redirect("http://www.baidu.com");
+        // 获取配置的默认允许的 action ，这些不需要 token 便可访问
+        $allowAction = Yii::$app->params['allowAction'];
+        
+        if ( \in_array( $action->id , (array)$allowAction) ) {
+            return parent::beforeAction($action);
+        }
+
+        $token = $this->get("token");
+        $cache = Yii::$app -> cache;
+        $email = $cache -> get( $token ) ;
+
+        if( !$email ){
+            return $this->redirect("err"); // token过期，重定向到登录页面
+        }
+
+        // 只要使用了一次，就将 token 重新设置并重新计时为30分钟
+        $cache -> delete( $token );
+        $cache -> set( $token , $email , 30*60 );
+
+        // throw new \yii\web\ForbiddenHttpException(sprintf('You can only %s articles that you\'ve created.', $action->id));
+        return parent::beforeAction($action);        
         
     }
 

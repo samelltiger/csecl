@@ -25,13 +25,13 @@ class TokenController extends BaseController
             return $this->renderJson([],0,403, ( is_string( $email ) ? $email:"")." 不是可用的管理员账号！");
         }
         
-        $code = $this  ->  getVerifyCode();
+        $code  = $this  ->  getVerifyCode();
 
         $cache = Yii::$app->cache;
         // 将验证码缓存到文件中，有效期为300秒
         $cache -> set($email, $code, 5*60);
 
-        $succ = $this -> SendVerifyCode( $email , $code);
+        $succ  = $this -> SendVerifyCode( $email , $code);
         
         if( $succ ){
             return $this->renderJson([ ] , 1 , 200 , "验证码发送成功，请注意查看邮件！");
