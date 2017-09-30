@@ -14,6 +14,7 @@ use yii\data\Pagination;
  * @property string $number
  * @property integer $sex
  * @property string $address
+ * @property string $email
  * @property string $phone
  * @property string $qq
  * @property string $college
@@ -44,13 +45,13 @@ class Application extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'number', 'address', 'phone', 'qq', 'college', 'major', 'grade', 'english_grade', 'math_grade', 'direct', 'created', 'updated'], 'required'],
+            [['name', 'number', 'address', 'email','phone', 'qq', 'college', 'major', 'grade', 'english_grade', 'math_grade', 'direct', 'created', 'updated'], 'required'],
             [['sex', 'english_grade', 'math_grade', 'status', 'created', 'updated'], 'integer'],
             [['referrer_info'], 'string'],
             [['number'],'unique'],
             [['name', 'college', 'major'], 'string', 'max' => 20],
             [['number'], 'string', 'max' => 12],
-            [['address'], 'string', 'max' => 50],
+            [['address','email'], 'string', 'max' => 50],
             [['phone', 'qq'], 'string', 'max' => 11],
             [['grade'], 'string', 'max' => 4],
             [['referrer', 'direct'], 'string', 'max' => 10],
@@ -68,6 +69,7 @@ class Application extends \yii\db\ActiveRecord
             'number' => 'Number',
             'sex' => 'Sex',
             'address' => 'Address',
+            'email' => 'Email',
             'phone' => 'Phone',
             'qq' => 'Qq',
             'college' => 'College',

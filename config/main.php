@@ -53,7 +53,7 @@ return [
                     'controller' => [
                             "site","v1/goods","v1/token",
 
-                            'application'
+                            'application','notice','rource',
                             ],
                     'extraPatterns' => [
                             'GET test'      => 'test',       //测试
@@ -71,11 +71,18 @@ return [
                             'PUT '  =>  'change', 
                             */
 
-
+                            //application notice rource
                             'GET show/<page:\d+>'     => 'show',
                             'GET simple/<page:\d+>'     => 'simple',
                             'GET get/<id:\d+>'     => 'get',
                             'POST createapp'     => 'createapp',
+                            'POST add'  => 'add',
+                            'POST upda'  => 'upda',
+                            'POST dele'  => 'dele',
+
+                            //rource
+                            'GET getrou/<type:\d+>'  => 'getrou',
+
                     ],
                 ],
             ],
