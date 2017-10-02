@@ -89,13 +89,12 @@ class BaseController extends \csecl\controllers\common\BaseController
     public function SendVerifyCode( $email , $code )
     {
         if($code){
-            return Yii::$app->mailer->compose('layouts/verifycode',[
-                    'title' => "Csecl管理员登录验证码" ,
-                    'code'=>  $code,
-                    ])
-                ->setTo($email)
-                ->setSubject('Csecl管理员登录验证码')
-                ->send();
+            $conent = file_get_contents( "http://cseclmail/?r=site/send&email=$email&code=$code" );
+            $success = json_decode( $conent , true) ;
+            if( isset( $success['success'] ) && $success['success'] === "sucessful" ){
+                return true;                
+            }else
+                return false;
         }
 
         return false;

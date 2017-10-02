@@ -80,7 +80,7 @@ return [
                             'POST add'  => 'add',
                             'POST upda'  => 'upda',
                             'POST dele'  => 'dele',
-
+                            'POST chk'  => 'chk',
                             //rource
                             'GET getrou/<type:\d+>'  => 'getrou',
 
