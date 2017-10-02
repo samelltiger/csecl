@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/icon.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div id="particles" class="container">
+      <div class="logo-wrapper">
+        <div class="logo-img">互联网创新实验室</div>
+        <div class="main">
+          <div class="tp"></div>
+          <div class="cp"><span>-</span> <em></em></div>
+          <div class="fp">
+            <div class="new">下一条</div>
+          </div>
+        </div>
+      </div>
+      <ul class="nav">
+        <li>实验室简介</li>
+        <li>最新公告</li>
+        <li>方向介绍</li>
+        <li>资 源 库</li>
+        <li>招新报名</li>
+      </ul>
+    </div>
+    <ul class="member">
+      <li class="avatar">名字1</li>
+    </ul>
+    <section class="content">
+      <div class="hd">
+        <span class="icon icon-close close-hook"></span>
+      </div>
+      <div class="bd">1</div>
+    </section>
+    <section class="content">
+      <div class="hd">
+        <span class="icon icon-close close-hook"></span>
+      </div>
+      <div class="bd">2</div>
+    </section>
+    <section class="content">
+      <div class="hd">
+        <span class="icon icon-close close-hook"></span>
+      </div>
+      <div class="bd">3</div>
+    </section>
+    <section class="content">
+      <div class="hd">
+        <span class="icon icon-close close-hook"></span>
+      </div>
+      <div class="bd">4</div>
+    </section>
+    <!-- 报名表的申请 -->
+    <section class="content reg">
+      <div class="hd">
+        <h2>CSECL-11 报名申请 <span class="icon icon-close close-hook"></span></h2>
+      </div>
+      <div class="bd-wrapper">
+        <div class="bd">
+          <div class="line-text">选择比努力重要,少走弯路才是最快的捷径</div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">姓名 * <span class="cue">[填写姓名2-4个中文汉字]</span></p>
+              <div class="text aborder check-hook">
+                <span class="icon icon-user"></span>
+                <input id="username" type="text" placeholder="请填写姓名">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-half">
+              <p class="title">性别 * <span class="cue">[没有人妖这个选项]</span></p>
+              <div class="radio">
+                <label for="sex1"><input type="radio" name="sex" id="sex1" value="1" checked> 男</label>
+                <label for="sex2"><input type="radio" name="sex" id="sex2" value="0"> 女</label>
+              </div>
+            </div>
+            <div class="task task-all">
+              <p class="title">学号 * <span class="cue">[你的校园卡上的学号]</span></p>
+              <div class="text aborder check-hook">
+                <input id="student" type="text" placeholder="请填写学号">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task">
+              <p class="title">籍贯 * <span class="cue">[我们暂时只招收中国籍农大学生]</span></p>
+              <div class="place">
+                <div class="place-t aborder place-tl select-province-hook">
+                  <p id="placeProvince" class="place-t-w show-select-hook">请选择</p>
+                  <i class="icon"></i>
+                  <span class="icon icon-down"></span>
+                  <ul class="hide-show show-province-hook"></ul>
+                </div>
+                <div class="place-t aborder place-tr select-city-hook">
+                  <p id="placeCity" class="place-t-w show-select-hook">请选择</p>
+                  <i class="icon"></i>
+                  <span class="icon icon-down"></span>
+                  <ul class="hide-show show-city-hook"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task">
+              <p class="title">手机 * <span class="cue">[用于接收面试短信]</span></p>
+              <div class="text aborder check-hook">
+                <span class="icon icon-phone"></span>
+                <input id="phone" type="text" placeholder="填写手机号码">
+                <i class="icon"></i>
+              </div>
+            </div>
+            <div class="task">
+              <p class="title">QQ * <span class="cue">[主要的社交沟通工具]</span></p>
+              <div class="text aborder check-hook">
+                <span class="icon icon-qq"></span>
+                <input id="qq" type="text" placeholder="填写QQ号码">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">邮箱 * <span class="cue">[务必是常用邮箱]</span></p>
+              <div class="text aborder check-hook">
+                <input id="email" type="email" placeholder="填写电子邮件地址">
+                <i class="icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="line-text">活鱼逆流而上,死魚随波逐流</div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">年级 * <span class="cue">[我们只招收小鲜肉]</span></p>
+              <div class="select aborder select-year-hook">
+                <p id="grade" class="select-text show-select-hook">请选择</p>
+                <i class="icon"></i>
+                <span class="icon icon-down"></span>
+                <ul class="hide-show hide-show-year show-year-hook"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">学院 * <span class="cue">[没有学院歧视]</span></p>
+              <div class="select aborder select-college-hook">
+                <p id="college" class="select-text show-select-hook">请选择</p>
+                <i class="icon"></i>
+                <span class="icon icon-down"></span>
+                <ul class="hide-show show-college-hook">
+                  <li>信息科学技术学院</li>
+                  <li>东方科技学院</li>
+                  <li>理学院</li>
+                  <li>工学院</li>
+                  <li>资源环境学院</li>
+                  <li>农学院</li>
+                  <li>园艺园林学院</li>
+                  <li>植物保护学院</li>
+                  <li>动物科学技术学院</li>
+                  <li>动物医学院</li>
+                  <li>食品科学技术学院</li>
+                  <li>经济学院</li>
+                  <li>商学院</li>
+                  <li>公共管理与法学学院</li>
+                  <li>马克思主义学院</li>
+                  <li>外国语学院</li>
+                  <li>教育学院</li>
+                  <li>生物科学技术学院</li>
+                  <li>体育艺术学院</li>
+                  <li>国际学院</li>
+                  <li>继续教育学院</li>
+                  <li>其他</li>
+                </ul>
+              </div>
+            </div>
+            <div class="task task-all">
+              <p class="title">专业 * <span class="cue">[没有专业限制]</span></p>
+              <p class="text aborder check-hook">
+                <input id="major" type="text" placeholder="填写专业">
+                <i class="icon"></i>
+              </p>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">高考数学成绩 * <span class="cue">[这都不算什么]</span></p>
+              <p class="text aborder check-hook">
+                <input id="math" type="text" placeholder="实事求是">
+                <i class="icon"></i>
+              </p>
+            </div>
+            <div class="task task-all">
+              <p class="title">高考英语成绩 * <span class="cue">[大学可以改变一切]</span></p>
+              <p class="text aborder check-hook">
+                <input id="english" type="text" placeholder="实事求是">
+                <i class="icon"></i>
+              </p>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">有无推荐人 * <span class="cue">[说明你挺优秀，我们欢迎]</span></p>
+              <p class="text aborder check-hook">
+                <input id="referrer" type="text" placeholder="有填写姓名，没有填写无">
+                <i class="icon"></i>
+              </p>
+            </div>
+          </div>
+          <div class="line-text">真的很累吗？累就对了,告诉自己：容易走的都是下坡路。</div>
+          <div class="line">
+            <div class="task task-half">
+              <p class="title">报名方向 * <span class="cue">[请深思熟虑，决定了就一直走下去]</span></p>
+              <p class="radio fx fx-hook">
+                <label for="fx1"><input type="radio" name="fx" id="fx1" value="产品" checked> 产品</label>
+                <label for="fx2"><input type="radio" name="fx" id="fx2" value="前端"> 前端</label>
+                <label for="fx3"><input type="radio" name="fx" id="fx3" value="程序"> 程序</label>
+              </p>
+              <div class="fx-info">
+                <p class="info-word" style="display:block">项目产品管理及运营（网站、APP和公众号运营,策划文案,产品策划与测试......）项目产品管理及运营（网站、APP和公众号运营,策划文案,产品策划与测试......）</p>
+                <p class="info-word">web前端开发、UI设计（web2.0网页设计,HTML,CSS,JavaScript,jQuery,Ajax......）</p>
+                <p class="info-word">后端开发、数据库设计、服务器部署等（Linux/Windows系统,Apache服务器,PHP语言,MySQL,MVC模式......）</p>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">用自己的话描述CSECL实验室是干什么的（尤其是自己报的方向）？以及自己打算如何在实验室学习？ * <span class="cue">[了解我们，也了解你自己]</span></p>
+              <div class="area">
+                <textarea id="question1" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                  <span>0/200</span>
+                  <i class="icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">简单谈谈你一年内的规划？能否在实验室呆满12个月？* <span class="cue">[规划！奋斗！成功！]</span></p>
+              <div class="area">
+                <textarea id="question2" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                  <span>0/200</span>
+                  <i class="icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">你做人的准则是什么？坚持多久了？* <span class="cue">[人总是要有原则的]</span></p>
+              <div class="area">
+                <textarea id="question3" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                  <span>0/200</span>
+                  <i class="icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">介绍一下自己和取得过的成就 ？* <span class="cue">[人总有辉煌的时候]</span></p>
+              <div class="area">
+                <textarea id="question4" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                    <span>0/200</span>
+                    <i class="icon"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">对于现状你满意吗？哪些方面你需要加强？* <span class="cue">[好好想想]</span></p>
+              <div class="area">
+                <textarea id="question5" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                  <span>0/200</span>
+                  <i class="icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task task-all">
+              <p class="title">你觉得我们为什么会录取你？* <span class="cue">[你觉得呢？]</span></p>
+              <div class="area">
+                <textarea id="question6" class="aborder" maxlength="200" placeholder="填写内容"></textarea>
+                <div class="text-number">
+                  <span>0/200</span>
+                  <i class="icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="task">
+              <div class="submit">提交</div>
+            </div>
+          </div>
+          <!--<div class="ok-info"><span>正在提交报名</span></div>-->
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+<script src="./jQplugins/jquery.min.js"></script>
+<script src="./jQplugins/particles.min.js"></script>
+<script src="./jQplugins/particles.param.js"></script>
+<script src="./js/quote-machine.js"></script>
+<script src="./js/avatar-play.js"></script>
+<script src="./js/china_cities.js"></script>
+<script src="./js/index.js"></script>
+
+</html>
