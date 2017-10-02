@@ -104,8 +104,10 @@ class ApplicationController extends BaseController
     //填写报名
     public function actionCreateapp(){
         $data = Yii::$app->request->post();
-        if(!isset($data))  
-            return $this->renderJson([] , 0 , 201 , "data没找到");
+        if(!isset($data['application']))  
+            return $this->renderJson([] , 0 , 201 , "application没找到");
+        if(!isset($data['question']))  
+            return $this->renderJson([] , 0 , 201 , "question没找到");
         $model = new Application();
         $model->setAttributes($data['application']);
         $model->created = time();
