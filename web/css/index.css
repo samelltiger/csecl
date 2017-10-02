@@ -92,8 +92,11 @@
     border-top-right-radius: 4px;
     background: #f0f0f0;
     text-align: center;
+<<<<<<< HEAD
     position: relative;
     z-index: 20;
+=======
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
 }
 .content .hd h2{
     height: 30px;
@@ -124,6 +127,10 @@
     width: 960px;
     height: 650px;
     overflow-y: scroll;
+<<<<<<< HEAD
+=======
+    position: relative;
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
 }
 .reg .bd-wrapper .bd{
     width: 600px;
@@ -302,6 +309,7 @@
 .reg .bd-wrapper .bd .line .task-half .title{
     margin-bottom: 20px;
 }
+<<<<<<< HEAD
 .reg .bd-wrapper .bd .line .task .submit,
 .reg .bd-wrapper .bd .line .aborder{
     border-radius: 4px;
@@ -329,11 +337,25 @@
     top:0;
     right: 0;
     bottom: 0;
+=======
+.reg .bd-wrapper .bd .line .aborder:hover{
+    border-color: #5597F5
+}
+.reg .bd-wrapper .bd .ok-info{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity:0.9;
+    position: absolute;
+    left: 0;
+    top:0;
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
     z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #333;
+<<<<<<< HEAD
     border-radius:4px;
 }
 .reg .bd-wrapper .bd .ok-info .show-info{
@@ -390,6 +412,12 @@
 }
 
 
+=======
+}
+
+
+
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
 .reg .hide-show{
     display: none;
     position: absolute;
@@ -451,7 +479,11 @@
 	padding:20px 25px;
 	text-align:left;
 	font-size:14px;
+<<<<<<< HEAD
 	font-weight:500;
+=======
+	font-weight:500px;
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
 	font-family:arial;
 }
 .main .cp{

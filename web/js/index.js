@@ -183,7 +183,11 @@ $(function () {
   // 学号
   checkedInput('#student', /^20[1-9]\d{9}$/, 1)
   // 手机
+<<<<<<< HEAD
   checkedInput('#phone', /^1[3|4|5|7|8][0-9]\d{8}$/)
+=======
+  checkedInput('#phone', /^1[3|4|5|8][0-9]\d{8}$/)
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
   // 验证QQ
   checkedInput('#qq', /^\d{5,11}$/)
   // 验证电子邮箱
@@ -216,7 +220,10 @@ $(function () {
   })
   function checkedInput(el, reg, fn) {
     $(el).on('input', function () {
+<<<<<<< HEAD
       $('.student-error').text('').hide()
+=======
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
       var dom = $(this).next()
       if (reg.test($(this).val())) {
         dom.removeClass('icon-close')
@@ -226,6 +233,7 @@ $(function () {
           $.ajax({
             type: "post",
             url: 'http://csecl/applications/chk',
+<<<<<<< HEAD
             data: { 'number': $(this).val() },
             success: function (data) {
               if (parseInt(data.code) === 201) {
@@ -239,6 +247,19 @@ $(function () {
             //   dom.addClass('icon-close')
             //   $('.student-error').text('验证失败，请稍后再试!!').fadeIn()
             // }
+=======
+            data: {'number':$(this).val()},
+            success: function (data) {
+              if(parseInt(data.code)===201){
+                  dom.removeClass('icon-ok')
+                  dom.addClass('icon-close')
+                console.log('已经报名')
+              }
+            },
+            error: function () {
+              console.log('验证失败，请稍后再试')
+            }
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
           });
         }
       } else {
@@ -249,12 +270,46 @@ $(function () {
   }
 })
 
+<<<<<<< HEAD
 // 验证提交
 $(function () {
   var $okInfo = $('.ok-info')
   var $errorInfo = $('.error-info')
   $okInfo.hide()
   $errorInfo.hide()
+=======
+// 填表效果
+
+// $(function(){
+//   var $line = $('.line,.submit,.line-text')
+//   var $add = $('#consSaa')
+//   var num = 2
+//   var scroll = 100
+//   console.log($line)
+//   $line.hide()
+//   $line.eq(0).show()
+//   $line.eq(1).show()
+//   $add.hide()
+//   $line.eq(1).click(function(){
+//     $add.show()
+//   })
+//   $add.click(function(){
+//     $add.hide()
+//     $line.eq(num).slideDown()
+//     $line.eq(num).click(function(){
+//       $add.show()
+//     })
+//     $('.bd-wrapper').animate({scrollTop: scroll}, 1000)
+//     num++
+//     scroll+=100
+//   })
+// })
+
+// 验证是否已经注册
+
+// 验证提交
+$(function () {
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
   $('.reg .submit').click(function () {
     var $allIcon = $('.reg i.icon')
     var $ok = $('.reg i.icon-ok')
@@ -267,10 +322,14 @@ $(function () {
           $(this).addClass('icon-ok')
         }
       })
+<<<<<<< HEAD
       $errorInfo.fadeIn('fast')
       setTimeout(function () {
         $errorInfo.fadeOut('fast')
       }, 2000)
+=======
+      console.log('信息不完整')
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
     } else {
       var data = {
         'application': {
@@ -300,6 +359,7 @@ $(function () {
       }
       // Api链接
       var url = 'http://csecl/applications/createapp'
+<<<<<<< HEAD
       var $steup = $('.steup')
       // 弹出正在提交界面
       $okInfo.fadeIn()
@@ -387,3 +447,19 @@ $(function () {
 //     scroll+=100
 //   })
 // })
+=======
+      $.ajax({
+        type: "post",
+        url: url,
+        data: data,
+        success: function (data) {
+          console.log(data)
+        },
+        error: function () {
+          console.log('请重新提交')
+        }
+      });
+    }
+  })
+})
+>>>>>>> 13a3c9296c6f61e64ecafe52a29994f66402c388
