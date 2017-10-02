@@ -183,7 +183,11 @@ $(function () {
   // 学号
   checkedInput('#student', /^20[1-9]\d{9}$/, 1)
   // 手机
+<<<<<<< HEAD
   checkedInput('#phone', /^1[3|4|5|8][0-9]\d{8}$/)
+=======
+  checkedInput('#phone', /^1[3|4|5|7|8][0-9]\d{8}$/)
+>>>>>>> refs/remotes/origin/dev-zh
   // 验证QQ
   checkedInput('#qq', /^\d{5,11}$/)
   // 验证电子邮箱
@@ -216,6 +220,10 @@ $(function () {
   })
   function checkedInput(el, reg, fn) {
     $(el).on('input', function () {
+<<<<<<< HEAD
+=======
+      $('.student-error').text('').hide()
+>>>>>>> refs/remotes/origin/dev-zh
       var dom = $(this).next()
       if (reg.test($(this).val())) {
         dom.removeClass('icon-close')
@@ -225,6 +233,7 @@ $(function () {
           $.ajax({
             type: "post",
             url: 'http://csecl/applications/chk',
+<<<<<<< HEAD
             data: {'number':$(this).val()},
             success: function (data) {
               if(parseInt(data.code)===201){
@@ -236,6 +245,21 @@ $(function () {
             error: function () {
               console.log('验证失败，请稍后再试')
             }
+=======
+            data: { 'number': $(this).val() },
+            success: function (data) {
+              if (parseInt(data.code) === 201) {
+                dom.removeClass('icon-ok')
+                dom.addClass('icon-close')
+                $('.student-error').text('该学号已经报名成功!!').fadeIn()
+              }
+            }
+            // error: function () {
+            //   dom.removeClass('icon-ok')
+            //   dom.addClass('icon-close')
+            //   $('.student-error').text('验证失败，请稍后再试!!').fadeIn()
+            // }
+>>>>>>> refs/remotes/origin/dev-zh
           });
         }
       } else {
@@ -246,6 +270,7 @@ $(function () {
   }
 })
 
+<<<<<<< HEAD
 // 填表效果
 
 // $(function(){
@@ -277,6 +302,14 @@ $(function () {
 
 // 验证提交
 $(function () {
+=======
+// 验证提交
+$(function () {
+  var $okInfo = $('.ok-info')
+  var $errorInfo = $('.error-info')
+  $okInfo.hide()
+  $errorInfo.hide()
+>>>>>>> refs/remotes/origin/dev-zh
   $('.reg .submit').click(function () {
     var $allIcon = $('.reg i.icon')
     var $ok = $('.reg i.icon-ok')
@@ -289,7 +322,14 @@ $(function () {
           $(this).addClass('icon-ok')
         }
       })
+<<<<<<< HEAD
       console.log('信息不完整')
+=======
+      $errorInfo.fadeIn('fast')
+      setTimeout(function () {
+        $errorInfo.fadeOut('fast')
+      }, 2000)
+>>>>>>> refs/remotes/origin/dev-zh
     } else {
       var data = {
         'application': {
@@ -319,6 +359,7 @@ $(function () {
       }
       // Api链接
       var url = 'http://csecl/applications/createapp'
+<<<<<<< HEAD
       $.ajax({
         type: "post",
         url: url,
@@ -333,3 +374,92 @@ $(function () {
     }
   })
 })
+=======
+      var $steup = $('.steup')
+      // 弹出正在提交界面
+      $okInfo.fadeIn()
+      $('#form-reset').click(function () {
+        $okInfo.fadeOut()
+      })
+      $('#form-commit').click(function () {
+        $('.confirm').hide()
+        $steup.html('<p><img src="./images/loading.gif"></p><p><span>正在验证数据...</span></p>')
+        setTimeout(function () {
+          $steup.html('<p><img src="./images/loading.gif"></p><p><span>正在提交数据...</span></p>')
+        }, 2000, )
+        setTimeout(function () {
+          $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            success: function (data) {
+              if (parseInt(data.code) === 200) {
+                $steup.html('<p><span class="icon icon-ok"></span></p><p><span>恭喜，报名成功</span></p>')
+                setTimeout(function(){
+                  $okInfo.fadeOut()
+                  $('#username').val()
+                  $('#student').val()
+                  $('#placeProvince').text()
+                  $('#placeCity').text()
+                  $('#phone').val()
+                  $('#qq').val()
+                  $('#email').val()
+                  $('#college').text()
+                  $('#major').val()
+                  $('#grade').text()
+                  $('#math').val()
+                  $('#english').val()
+                  $('#referrer').val()
+                  $('#question1').val()
+                  $('#question2').val()
+                  $('#question3').val()
+                  $('#question4').val()
+                  $('#question5').val()
+                  $('#question6').val()
+                },2000)
+              }
+            },
+            error: function () {
+              $steup.html('<p><span class="icon icon-close"></span></p><p><span>提交失败，稍后重试</span></p>')
+              setTimeout(function(){
+                $okInfo.fadeOut()
+                $steup.html('')
+                setTimeout(function(){
+                  $('.confirm').show()
+                },2000)
+              },2000)
+            }
+          })
+        }, 3000)
+      })
+    }
+  })
+})
+
+// 填表效果
+
+// $(function(){
+//   var $line = $('.line,.submit,.line-text')
+//   var $add = $('#consSaa')
+//   var num = 2
+//   var scroll = 100
+//   console.log($line)
+//   $line.hide()
+//   $line.eq(0).show()
+//   $line.eq(1).show()
+//   $add.hide()
+//   $line.eq(1).click(function(){
+//     $add.show()
+//   })
+//   $add.click(function(){
+//     $add.hide()
+//     $line.eq(num).slideDown()
+//     $line.eq(num).click(function(){
+//       $add.show()
+//     })
+//     $('.bd-wrapper').animate({scrollTop: scroll}, 1000)
+//     num++
+//     scroll+=100
+//   })
+// })
+>>>>>>> refs/remotes/origin/dev-zh

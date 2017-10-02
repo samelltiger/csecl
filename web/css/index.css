@@ -92,6 +92,11 @@
     border-top-right-radius: 4px;
     background: #f0f0f0;
     text-align: center;
+<<<<<<< HEAD
+=======
+    position: relative;
+    z-index: 20;
+>>>>>>> refs/remotes/origin/dev-zh
 }
 .content .hd h2{
     height: 30px;
@@ -122,7 +127,10 @@
     width: 960px;
     height: 650px;
     overflow-y: scroll;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> refs/remotes/origin/dev-zh
 }
 .reg .bd-wrapper .bd{
     width: 600px;
@@ -301,6 +309,7 @@
 .reg .bd-wrapper .bd .line .task-half .title{
     margin-bottom: 20px;
 }
+<<<<<<< HEAD
 .reg .bd-wrapper .bd .line .aborder:hover{
     border-color: #5597F5
 }
@@ -312,13 +321,99 @@
     position: absolute;
     left: 0;
     top:0;
+=======
+.reg .bd-wrapper .bd .line .task .submit,
+.reg .bd-wrapper .bd .line .aborder{
+    border-radius: 4px;
+}
+.reg .bd-wrapper .bd .line .aborder:hover{
+    border-color: #5597F5
+}
+.reg .bd-wrapper .bd .line .student-check{
+    position: relative;
+}
+.reg .bd-wrapper .bd .line .student-check .student-error{
+    position: absolute;
+    bottom: 4px;
+    left: 20px;
+    font-size: 12px;
+    color: #d9534f;
+    display: none;
+}
+.reg .bd-wrapper .bd .ok-info{
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    position: absolute;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+>>>>>>> refs/remotes/origin/dev-zh
     z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #333;
+<<<<<<< HEAD
 }
 
+=======
+    border-radius:4px;
+}
+.reg .bd-wrapper .bd .ok-info .show-info{
+    text-align: center;
+    line-height: 30px;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm{
+    width: 200px;
+    height: 85px;
+    background: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm .confirm-title{
+    line-height: 45px;
+    border-bottom: 1px solid #ccc;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm .confirm-contn{
+    display: flex;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm .confirm-contn span{
+    flex: 1;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm .confirm-contn span:hover{
+    color: #5597F5;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .confirm .confirm-contn span#form-reset{
+    border-right: 1px solid #ccc;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .icon{
+    font-size: 40px;
+}
+.reg .bd-wrapper .bd .ok-info .show-info .icon-ok{
+    color: #5597F5
+}
+.reg .bd-wrapper .bd .ok-info .show-info .icon-close{
+    color: #d9534f
+}
+.reg .bd-wrapper .bd .error-info{
+    width: 100%;
+    height: 40px;
+    line-height:40px;
+    position: absolute;
+    left: 0;
+    top:50px;
+    background: #d9534f;
+    opacity: 0.9;
+    color: #fff;
+    text-align: center;
+}
+>>>>>>> refs/remotes/origin/dev-zh
 
 
 .reg .hide-show{
@@ -382,7 +477,11 @@
 	padding:20px 25px;
 	text-align:left;
 	font-size:14px;
+<<<<<<< HEAD
 	font-weight:500px;
+=======
+	font-weight:500;
+>>>>>>> refs/remotes/origin/dev-zh
 	font-family:arial;
 }
 .main .cp{
