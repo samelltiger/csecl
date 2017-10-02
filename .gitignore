@@ -1,2 +1,7 @@
 valid.txt
+<<<<<<< HEAD
+index.php
+index-test.php
+=======
 .vscode
+>>>>>>> refs/remotes/origin/dev-hwj
