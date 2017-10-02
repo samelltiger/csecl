@@ -8,5 +8,6 @@ return [
         411 => "token已过期"
 
     ],
+    'allowAction'         => [ "err" , "index" , "new" , "verification" ], //不需要token验证的方法名
     
 ];
