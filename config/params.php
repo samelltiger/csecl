@@ -9,7 +9,7 @@ return [
 
     ],
 
-    'allowAction'   => [ "err" , "index" , "new" , "verification","chk","createapp","show"], //不需要token验证的方法名
+    'allowAction'   => [ "err" , "index" , "new" , "verification","chk","createapp"], //不需要token验证的方法名
 
     
 ];
