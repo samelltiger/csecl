@@ -18,8 +18,10 @@ class ApplicationController extends BaseController
     //需不需要返回 总共有多少页
 
     //展示所有报名表  
-    public function actionShow($page = 1){
-    	//一页展示的数  $limit  
+    public function actionShow($page){
+    	//一页展示的数  $limit 
+        if(!isset($page))  
+            return $this->renderJson([] , 0 , 201 , "page参数没找到");
         $page = $page - 1;
         $limit = 5;
         $offset = $limit * $page;
@@ -44,6 +46,8 @@ class ApplicationController extends BaseController
 
     //展示单个报名表 by id
     public function actionGet($id){
+        if(!isset($id))  
+            return $this->renderJson([] , 0 , 201 , "id参数没找到");
     	$personer = Application::findOne(['id'=>$id]);
         if(!$personer)  return $this->renderJson([] , 0 , 404 , "资源不存在");
         $personer = ArrayHelper::toArray($personer, ['frontend\models\Application' => [],]);
@@ -67,6 +71,8 @@ class ApplicationController extends BaseController
     //修改报名数据 报名->见习
     public function actionUpda(){
         $data = Yii::$app->request->post();
+        if(!isset($data['id'])||!isset($data['status']))  
+            return $this->renderJson([] , 0 , 201 , "参数没找到");
         $model = Application::findOne(['id'=>$data['id']]);
         if(!$model) return $this->renderJson([],0,404,'资源不存在修改失败！');
         $model->setAttributes($data);
@@ -75,8 +81,10 @@ class ApplicationController extends BaseController
     }
 
     //展示报名表简要信息
-	public function actionSimple($page = 1){
+	public function actionSimple($page){
         //一页展示的数  $limit 
+        if(!isset($page))  
+            return $this->renderJson([] , 0 , 201 , "page参数没找到");
         $page = $page - 1;
         $limit = 5;
         $offset = $limit * $page;
@@ -96,6 +104,8 @@ class ApplicationController extends BaseController
     //填写报名
     public function actionCreateapp(){
         $data = Yii::$app->request->post();
+        if(!isset($data))  
+            return $this->renderJson([] , 0 , 201 , "data没找到");
         $model = new Application();
         $model->setAttributes($data['application']);
         $model->created = time();
@@ -113,6 +123,8 @@ class ApplicationController extends BaseController
     //检查是否已提交过申请表
     public function actionChk(){
        $number = Yii::$app->request->post();
+       if(!isset($number))  
+            return $this->renderJson([] , 0 , 201 , "number参数没找到");
        $status = Application::find()->where(['number'=>$number])->Count();
        if($status) return $this->renderJson([] , 0 , 201 , "请勿重复提交");
        return $this->renderJson([] , 0 , 200, "学号未进行过提交"); 
