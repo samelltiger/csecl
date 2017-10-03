@@ -1,9 +1,9 @@
 <?php
-namespace csecl\controllers;
+namespace csecl\modules\v1\controllers;
 use csecl\models\Application;
 use csecl\models\Question;
 use yii\helpers\ArrayHelper;
-use csecl\controllers\common\BaseController;
+use csecl\modules\v1\controllers\common\BaseController;
 use Yii;
 class ApplicationController extends BaseController
 {
