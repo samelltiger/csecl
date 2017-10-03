@@ -8,8 +8,9 @@ return [
         411 => "token已过期"
 
     ],
+    "redirectUrl"   => "http://csecl_lo/v1/applications/err" ,   //  默认重定向的错误页面
 
-    'allowAction'         => [ "err" , "index" , "new" , "verification" ], //不需要token验证的方法名
+    'allowAction'   => [ "err" , "index" , "new" , "verification","chk","createapp","show"], //不需要token验证的方法名
 
     
 ];

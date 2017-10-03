@@ -53,7 +53,7 @@ return [
                     'controller' => [
                             "site","v1/goods","v1/token",
 
-                            'application','notice','rource',
+                            'v1/application','notice','rource',
                             ],
                     'extraPatterns' => [
                             'GET test'      => 'test',       //测试

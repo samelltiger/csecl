@@ -37,7 +37,7 @@ class BaseController extends \csecl\controllers\common\BaseController
         $email = $cache -> get( $token ) ;
 
         if( !$email ){
-            return $this->redirect("err?errcode=411"); // token过期，重定向到登录页面
+            return $this->redirect( Yii::$app->params["redirectUrl"]."?errcode=411"); // token过期，重定向到登录页面
         }
 
         // 只要使用了一次，就将 token 重新设置并重新计时为30分钟
