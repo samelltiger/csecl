@@ -22,11 +22,12 @@ class ApplicationController extends BaseController
     	//一页展示的数  $limit 
         if(!isset($page))  
             return $this->renderJson([] , 0 , 201 , "page参数没找到");
-        $page = $page - 1;
-        $limit = 5;
+        if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
+        $page = $page -1;
+        $limit = 10;
         $offset = $limit * $page;
         $count=Application::find()->count();
-        if($count<5) $offset = 0;
+        if($count<10) $offset = 0;
         $i=0;
         $personers = (new \yii\db\Query())
                 ->from('application')
@@ -41,6 +42,7 @@ class ApplicationController extends BaseController
             $personers[$i] = ArrayHelper::merge($personers[$i],$question);
             $i++;
         }
+        $personers['totalpage'] = ceil($count/$limit);
         return $this->renderJson($personers , 1 , 200 , []);
     }
 
@@ -85,11 +87,12 @@ class ApplicationController extends BaseController
         //一页展示的数  $limit 
         if(!isset($page))  
             return $this->renderJson([] , 0 , 201 , "page参数没找到");
+        if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
         $page = $page - 1;
-        $limit = 5;
+        $limit = 10;
         $offset = $limit * $page;
         $count=Application::find()->count();
-        if($count<5) $offset = 0;
+        if($count<10) $offset = 0;
         $personers = (new \yii\db\Query())
                 ->select(['id','name','number','direct','grade'])
                 ->from('application')
@@ -98,6 +101,7 @@ class ApplicationController extends BaseController
                 ->offset($offset)
                 ->all();
         if(!$personers)  return $this->renderJson([] , 0 , 404 , "资源不存在");
+        $personers['totalpage'] = ceil($count/$limit);
         return $this->renderJson($personers , 1 , 200 , []);
 	}
 
@@ -124,11 +128,11 @@ class ApplicationController extends BaseController
 
     //检查是否已提交过申请表
     public function actionChk(){
-       $number = Yii::$app->request->post();
-       if(!isset($number))  
-            return $this->renderJson([] , 0 , 201 , "number参数没找到");
-       $status = Application::find()->where(['number'=>$number])->Count();
-       if($status) return $this->renderJson([] , 0 , 201 , "请勿重复提交");
+       $data = Yii::$app->request->post();
+       if(!isset($data['number']))  
+            return $this->renderJson([] , 0 , 200 , "number参数没找到");
+       $status = Application::find()->where(['number'=>$data['number']])->Count();
+       if($status) return $this->renderJson([] , 1 , 200 , "请勿重复提交");
        return $this->renderJson([] , 0 , 200, "学号未进行过提交"); 
     }
 
