@@ -1,6 +1,8 @@
 valid.txt
+<<<<<<< HEAD
 index.php
 index-test.php
+<<<<<<< HEAD
 .DS_Store
 node_modules/
 dist/
@@ -14,3 +16,8 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+=======
+=======
+.vscode
+>>>>>>> refs/remotes/origin/dev-hwj
+>>>>>>> 8a147745c2d95ee64e5b6492fb85b4f45df84107
