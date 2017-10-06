@@ -31,9 +31,9 @@ class ApplicationController extends BaseController
         $i=0;
         $personers = (new \yii\db\Query())
                 ->from('application')
-                ->limit($limit)
+                //->limit($limit)
                 ->orderBy('id')
-                ->offset($offset)
+                //->offset($offset)
                 ->all();
         if(!$personers)  return $this->renderJson([] , 0 , 404 , "资源不存在");
         foreach ($personers as $personer) {
@@ -42,7 +42,7 @@ class ApplicationController extends BaseController
             $personers[$i] = ArrayHelper::merge($personers[$i],$question);
             $i++;
         }
-        $personers['totalpage'] = ceil($count/$limit);
+        //$personers['totalpage'] = ceil($count/$limit);
         return $this->renderJson($personers , 1 , 200 , []);
     }
 
