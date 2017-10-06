@@ -26,18 +26,17 @@ $(function () {
     var t = 10;
     var _this = this;
     $(_this).attr('disabled', 'disabled').removeClass('a');
-    timer();
     // 请求部分等待
     $.ajax({
       type: 'GET',
       url: '/v1/tokens/' + $email.val() + '?role=api',
       sucsess: function (data) {
-        if (data.success !== 'success') {
-          $loginError.show().text('该邮箱不是管理员邮箱');
+        if (data.success === 'success') {
+          timer();
         }
       },
       error: function () {
-        $loginError.show().text('验证失败，请稍后再试');
+        $loginError.show().text('该邮箱不是管理员邮箱');
       }
     });
     function timer() {
