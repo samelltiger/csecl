@@ -162,8 +162,9 @@ $(function () {
   // 文本域验证
   $.each($('textarea'), function (index, value) {
     $(value).on('input', function () {
-      // 去掉空格
-      var len = $.trim($(this).val().replace(/\s/g, "")).length;
+      // 去掉空格 去掉html
+      var str = $(this).val().replace(/[<|>]/g, "");
+      var len = $.trim($(this).val().replace(/\s/g, "").replace(/[<|>]/g, "")).length;
       if (len < 20) {
         $(this).next().css('color', '#d9534f');
         $(this).next().find('span').text('还差' + (20 - len) + '字');
@@ -175,7 +176,7 @@ $(function () {
         $(this).next().find('.icon').removeClass('icon-close');
         $(this).next().find('.icon').addClass('icon-ok');
       }
-    })
+    });
   });
   function checkedInput(el, reg, fn) {
     $(el).on('input', function () {
@@ -251,12 +252,12 @@ $(function () {
           'referrer': $('#referrer').val()
         },
         'question': {
-          'answer1': $('#question1').val(),
-          'answer2': $('#question2').val(),
+          'answer1': $.trim($('#question1').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
+          'answer2': $.trim($('#question2').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
           'answer3': $('#question3').val(),
-          'answer4': $('#question4').val(),
-          'answer5': $('#question5').val(),
-          'answer6': $('#question6').val()
+          'answer4': $.trim($('#question4').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
+          'answer5': $.trim($('#question5').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
+          'answer6': $.trim($('#question6').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
         }
       };
       var $steup = $('.steup');
