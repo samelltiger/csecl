@@ -73,7 +73,7 @@ return [
                             */
 
                             //application notice rource
-                            'GET show/<page:\d+>'     => 'show',
+                            'GET show/'     => 'show',
                             'GET simple/<page:\d+>'     => 'simple',
                             'GET get/<id:\d+>'     => 'get',
                             'POST createapp'     => 'createapp',
