@@ -26,15 +26,15 @@ $(function () {
 
 // 点击打开窗体
 $(function () {
-  var $navList = $('.nav li')
+  var $nav = $('.nav')
   var $content = $('.content')
-  $.each($navList, function (index, value) {
+  $.each($nav.find('li'), function (index, value) {
     $(value).click(function () {
-      $navList.fadeOut()
+      $nav.fadeOut()
       $content.eq(index).slideDown()
-      $content.find('.close-hook').click(function () {
+      $content.eq(index).find('.close-hook').click(function () {
         $content.eq(index).slideUp('show', function () {
-          $navList.fadeIn()
+          $nav.fadeIn()
         })
       })
     })
