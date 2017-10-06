@@ -1,10 +1,10 @@
 
 // 引入china_cities.min.js , api.js
-var origin = 'http://www.csecl.com';
+
 var citMap = china_cities;
 var signup =  {
-  postData: origin+'/v1/applications/createapp?role=api',
-  checkNumber:origin+'/v1/applications/chk?role=api'
+  postData: '/v1/applications/createapp?role=api',
+  checkNumber: '/v1/applications/chk?role=api'
 };
 var $content = $('.content');
 // 省份 县市选择
@@ -22,7 +22,7 @@ $(function () {
   // 点击选择省份
   $provinceSelect.click(function (e) {
     e.stopPropagation();
-    $showProvince.slideToggle()
+    $showProvince.slideToggle();
   });
   // 省份未选择
   $citySelect.click(function (e) {
@@ -60,7 +60,7 @@ $(function () {
   });
   $content.click(function () {
     $showProvince.slideUp();
-    $showCity.slideUp()
+    $showCity.slideUp();
   })
 });
 
@@ -75,18 +75,18 @@ $(function () {
   });
   $yearSelect.click(function (e) {
     e.stopPropagation();
-    $showYear.slideToggle()
+    $showYear.slideToggle();
   });
   $.each($showYear.find('li'), function (key, item) {
     $(item).click(function (e) {
       e.stopPropagation();
       $yearSelect.find('.show-select-hook').html($(this).html());
       $yearSelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
-      $showYear.slideUp()
+      $showYear.slideUp();
     })
   });
   $content.click(function () {
-    $showYear.slideUp()
+    $showYear.slideUp();
   })
 });
 
@@ -96,18 +96,18 @@ $(function () {
   var $showCollege = $('.show-college-hook');
   $collegeSelect.click(function (e) {
     e.stopPropagation();
-    $showCollege.slideToggle()
+    $showCollege.slideToggle();
   });
   $.each($showCollege.find('li'), function (key, item) {
     $(item).click(function (e) {
       e.stopPropagation();
       $collegeSelect.find('.show-select-hook').html($(this).html());
       $collegeSelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
-      $showCollege.slideUp()
+      $showCollege.slideUp();
     })
   });
   $content.click(function () {
-    $showCollege.slideUp()
+    $showCollege.slideUp();
   })
 });
 
@@ -118,7 +118,7 @@ $(function () {
   $.each($selectRod, function (index, value) {
     $(value).click(function () {
       $showConeb.hide();
-      $showConeb.eq(index).show()
+      $showConeb.eq(index).show();
     })
   })
 });
@@ -139,7 +139,7 @@ $(function () {
   })
 });
 
-// 实时检查------------------------
+// 实时检查
 $(function () {
   // 姓名
   checkedInput('#username', /^[\u4E00-\u9FA5]{2,4}$/);
@@ -209,7 +209,7 @@ $(function () {
         dom.removeClass('icon-ok');
         dom.addClass('icon-close');
       }
-    })
+    });
   }
 });
 
@@ -232,14 +232,14 @@ $(function () {
       $errorInfo.fadeIn('fast');
       setTimeout(function () {
         $errorInfo.fadeOut('fast');
-      }, 2000)
+      }, 2000);
     } else {
       var data = {
         'application': {
           'name': $('#username').val(),
           'sex': parseInt($("input[name='sex']:checked").val()),
           'number': $('#student').val(),
-          'address': '中国 ' + $('#placeProvince').text() + ' ' + $('#placeCity').text(),
+          'address': $('#placeProvince').text() + $('#placeCity').text(),
           'phone': $('#phone').val(),
           'qq': $('#qq').val(),
           'email': $('#email').val(),
@@ -257,14 +257,14 @@ $(function () {
           'answer3': $('#question3').val(),
           'answer4': $.trim($('#question4').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
           'answer5': $.trim($('#question5').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
-          'answer6': $.trim($('#question6').val().replace(/\s/g, "").replace(/[<|>]/g, "")),
+          'answer6': $.trim($('#question6').val().replace(/\s/g, "").replace(/[<|>]/g, ""))
         }
       };
       var $steup = $('.steup');
       // 弹出正在提交界面
       $okInfo.fadeIn();
       $('#form-reset').click(function () {
-        $okInfo.fadeOut()
+        $okInfo.fadeOut();
       });
       $('#form-commit').click(function () {
         $('.confirm').hide();
@@ -292,12 +292,12 @@ $(function () {
                 $steup.html('');
                 setTimeout(function(){
                   $('.confirm').show();
-                },2000)
-              },2000)
+                },2000);
+              },2000);
             }
-          })
-        }, 3000)
-      })
+          });
+        }, 3000);
+      });
     }
-  })
+  });
 });
