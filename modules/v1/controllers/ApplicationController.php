@@ -18,16 +18,16 @@ class ApplicationController extends BaseController
     //需不需要返回 总共有多少页
 
     //展示所有报名表  
-    public function actionShow($page){
+    public function actionShow(){
     	//一页展示的数  $limit 
-        if(!isset($page))  
-            return $this->renderJson([] , 0 , 201 , "page参数没找到");
-        if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
-        $page = $page -1;
-        $limit = 10;
-        $offset = $limit * $page;
-        $count=Application::find()->count();
-        if($count<10) $offset = 0;
+        // if(!isset($page))  
+        //     return $this->renderJson([] , 0 , 201 , "page参数没找到");
+        // if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
+        // $page = $page -1;
+        // $limit = 10;
+        // $offset = $limit * $page;
+        // $count=Application::find()->count();
+        // if($count<10) $offset = 0;
         $i=0;
         $personers = (new \yii\db\Query())
                 ->from('application')
@@ -94,7 +94,7 @@ class ApplicationController extends BaseController
         $count=Application::find()->count();
         if($count<10) $offset = 0;
         $personers = (new \yii\db\Query())
-                ->select(['id','name','number','direct','grade'])
+                ->select(['id','sex','name','address','grade','college','major','direct','english_grade','math_grade','referrer'])
                 ->from('application')
                 ->limit($limit)
                 ->orderBy('id')
