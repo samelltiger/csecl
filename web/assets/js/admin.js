@@ -374,7 +374,7 @@ $(function () {
                 }
               },
               error: function(){
-                console.log(res);
+                console.log('');
               }
             });
 });

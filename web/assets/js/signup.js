@@ -1,10 +1,10 @@
 
 // 引入china_cities.min.js , api.js
-var origin = 'csecl';
+var origin = 'http://www.csecl.com';
 var citMap = china_cities;
 var signup =  {
-  postData: '/v1/applications/createapp?role=api',
-  checkNumber:'/v1/applications/chk?role=api'
+  postData: origin+'/v1/applications/createapp?role=api',
+  checkNumber:origin+'/v1/applications/chk?role=api'
 };
 var $content = $('.content');
 // 省份 县市选择
