@@ -155,9 +155,10 @@
   min-height: 100px;
   width: 100%;
   font-size: 14px;
+  line-height: 22px;
   padding: 5px;
   border: 1px solid #ccc;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .reg .line .task .area .text-number{

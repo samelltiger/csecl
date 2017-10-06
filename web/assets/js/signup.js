@@ -191,7 +191,7 @@ $(function () {
             url: signup.checkNumber,
             data: { 'number': $(this).val() },
             success: function (data) {
-              if (data.success === 'fail') {
+              if (data.success === 'success') {
                 dom.removeClass('icon-ok');
                 dom.addClass('icon-close');
                 $('.student-error').text('该学号已经报名成功!!').fadeIn();

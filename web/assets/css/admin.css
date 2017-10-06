@@ -218,8 +218,11 @@
     display: flex;    
     transition: all 0.1s ease-in-out;
 }
+.students-wrapper .students-list table tr.select{
+    background: rgb(85, 151, 245);
+}
 .students-wrapper .students-list table tr:hover{
-    background: #e5e5e5;
+    background: rgba(85, 151, 245,0.5);
 }
 .students-wrapper .students-list table tr th,
 .students-wrapper .students-list table tr td{
