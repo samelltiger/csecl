@@ -1,458 +1,822 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0.minimum-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>互联网创新实验室</title>
-  <link rel="stylesheet" href="./assets/css/raster.css">
-  <link rel="stylesheet" href="./assets/css/common.css">
-  <link rel="stylesheet" href="./assets/css/icon.css">
-  <link rel="stylesheet" href="./assets/css/index.css">
-  <link rel="stylesheet" href="./assets/css/signup.css">
-  <!-- <script>
-   function browserRedirect() {
-      var sUserAgent = navigator.userAgent.toLowerCase();
-      var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-      var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-      var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-      var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-      var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-      var bIsAndroid = sUserAgent.match(/android/i) =="android";
-      var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-      var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-      if (bIsIpad) {
-        return "ipad";
-      }else if( bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-        return "phone";
-      }else {
-        return "pc";
-      }
-    }
-    (function () {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      if(browserRedirect() === 'pc'){
-        link.href = './assets/css/pc.css'
-      }else {
-        link.href = './assets/css/phone.css'
-      }
-      document.getElementsByTagName('head')[0].appendChild(link)
-    })()
-  </script> -->
+
+  <!-- META DATA -->
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <!-- CSS Implementing Plugins -->
+  <!-- <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/bicolor.min.css"> -->
+
+  <!-- CSS Global Compulsory -->
+  <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="assets/css/raster.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/icon.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/subscribe.css">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <!-- FAVICONS -->
+  <!-- <link rel="shortcut icon" href="assets/img/favicon.png"> -->
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
+
 </head>
 
-<body>
-  <div class="page-wrapper">
-    <div id="particles" class="container">
-      <div class="logo-wrapper">
-        <div class="logo-img">互联网创新实验室</div>
+<body class="start">
+  <div id="awd-site-wrap" class="bg bg-home">
+
+    <div id="bg">
+      <div id="overlay">
+        <div class="awd-site-bg bg-home active"></div>
+        <div class="awd-site-bg bg-subscribe"></div>
+        <div class="awd-site-bg bg-about"></div>
+        <div class="awd-site-bg bg-contact"></div>
+        <div class="awd-site-bg bg-services"></div>
       </div>
-      <ul class="nav">
-        <li>实验室简介</li>
-        <li>最新公告</li>
-        <li>方向介绍</li>
-        <li>资 源 库</li>
-        <li>招新报名</li>
-      </ul>
+      <canvas id="awd-site-canvas"></canvas>
     </div>
-    <section class="content">
-      <div class="hd">
-        <h2>实验室简介<span class="icon icon-close close-hook"></span></h2>
+
+    <header id="awd-site-header">
+      <div id="awd-site-logo" class="animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="500">
+        <h1>
+          <a href="#" class="go-slide" data-slide="home">
+            <i class="fa fa-commenting-o"></i>
+            <span>互联网创新实验室</span>
+          </a>
+        </h1>
       </div>
-      <div class="bd">
-        <div class="bd-wrappper"></div>
-      </div>
-    </section>
-    <section class="content">
-      <div class="hd">
-        <h2>最新公告<span class="icon icon-close close-hook"></span></h2>
-      </div>
-      <div class="bd">
-        <div class="bd-wrappper"></div>
-      </div>
-    </section>
-    <section class="content">
-      <div class="hd">
-        <h2>方向介绍<span class="icon icon-close close-hook"></span></h2>
-      </div>
-      <div class="bd">
-        <div class="bd-wrappper"></div>
-      </div>
-    </section>
-    <section class="content">
-      <div class="hd">
-        <h2>资 源 库<span class="icon icon-close close-hook"></span></h2>
-      </div>
-      <div class="bd">
-        <div class="bd-wrappper"></div>
-      </div>
-    </section>
-    <!-- 报名表的申请 -->
-    <section class="content">
-      <div class="hd">
-        <h2>CSECL-11 报名申请<span class="icon icon-close close-hook"></span></h2>
-      </div>
-      <!--加载signup页面-->
-      <div class="bd">
-        <div class="bd-wrapper reg">
-          <div class="layout">
-            <div class="line-text">选择比努力重要,少走弯路才是最快的捷径</div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">姓名 * <span class="cue">[填写姓名2-4个中文汉字]</span></p>
-                    <div class="text show-border check-hook">
-                      <span class="icon icon-user"></span>
-                      <input id="username" type="text" placeholder="请填写姓名">
-                      <i class="icon"></i>
+
+      <button class="menu-toggle animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="500" data-role="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="awd-site-nav" class="navigation animated fadeInDown visible" data-animation="fadeInDown" data-animation-delay="500">
+        <div class="nav-container">
+          <ul>
+            <li>
+              <a href="#" data-slide="home" class="active">关于实验室</a>
+            </li>
+            <li>
+              <a href="#" data-slide="subscribe" class="">方向简介</a>
+            </li>
+            <li>
+              <a href="#" data-slide="services" class="">资源推荐</a>
+            </li>
+            <li>
+              <a href="#" data-slide="contact" class="">加入我们</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="awd-site-main">
+      <section id="awd-site-content">
+        <div class="sections-block">
+          <div class="slides">
+
+            <div class="slides-wrap">
+              <!-- 主页 -->
+              <div class="slide-item active" data-slide-id="home">
+                <div class="layout animated fadeIn visible" data-animation="fadeIn" data-animation-delay="60">
+                  <div class="home">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="pics pd-10">
+                          <div class="image">
+                            <div class="img">实验室往期成员照片 x9</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h3 class="title pd-10">
+                          <div class="word">实验室简介</div>
+                        </h3>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="info pd-10">
+                          <p class="koam line-h">
+                            互联网创新实验室（原复杂系统与电子商务创新实验室），以“互联网+”为核心，以 web 系统开发、电子商务案例深度分析、网站设计， UI 设计、网站易用性研究，网络营销、 MVC 模式系统开发、 UI 设计 SNS 等方面为研究方向。目前实验室分成程序、前端、产品三个方向，并通过项目开发为导向进行实践提升。
+                          </p>
+                          <p class="koam line-h">
+                            10年来，实验室作为培养互联网精英的摇篮，采用项目驱动制因材施教模式，运行实现常态化，前期毕业成员广泛分布于阿里巴巴、腾讯、新浪、百度、360、网易、金山等大型互联网公司，实现100%高成长与高就业。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>10</em> 年</span>
+                              <span>人才培养</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>20</em> 项</span>
+                              <span>创新成果</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>6</em> 项</span>
+                              <span>国际认证</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>38</em> 项</span>
+                              <span>各类奖项</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>2</em> 家</span>
+                              <span>明星企业</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 col-md-2">
+                          <div class="pi">
+                            <div>
+                              <span>
+                                <em>68</em>%</span>
+                              <span>论文优秀</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="info pd-10">
+                          <p class="koam line-h">
+                            至今我们实验室已吸纳并培养10期近130余人互联网领域优秀人才，获奖 78 项（国家级41项，省级37项），获基金资助 14 项（省级1项）， 开发系统和网站 30 余项。创新一期培养的7名毕业生在2009年全球金融危机的背景下实现了100%就业率，平均工资为3500元，比普通本科毕业生的平均工资（1825元，智联招聘2009年12月24日统计数据）高出90%以上。
+                            十年来，实验室运行实现常态化，采用项目驱动制因材施教模式，这些都是隐形的宝贵资源。
+                          </p>
+                          <p class="koam line-h">
+                            你可以清晰地了解未来就业的方向、学习更多专业技能、同时得到更多专业信息。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h3 class="title pd-10">
+                        <div class="word">指导老师</div>
+                      </h3>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="t-avatar pd-10">
+                            <div class="image">
+                              <div class="img">聂老师帅照</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="info pd-10">
+                            <h3 class="name">聂笑一</h3>
+                            <p class="say line-h">“我一直在做一件事：营造一个积极的学习氛围，让学生能真正学到知识，实现自我价值和社会价值的最大化。”</p>
+                            <div class="fame">
+                              <span>ACCD认证平面设计师</span>
+                              <span>CCNA网络工程师</span>
+                              <span>中国互联网协会网络营销师</span>
+                              <span>湖南农业大学电子商务系副主任</span>
+                              <span>复杂系统与电子商务创新实验室主任</span>
+                            </div>
+                            <div class="other line-h">中南大学计算机专业硕士 / 原中芯数字研发部总监 / 信科院教工团支部书记 / 研究生导师 / 拥有互联网、电子商务领域6项国际专业认证证书</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="t-avatar pd-10">
+                            <div class="image">
+                              <div class="img">肖老师帅照</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="info pd-10">
+                            <h3 class="name">肖毅</h3>
+                            <p class="say line-h">“在近5年中，创新实验室共培养了近50名学员，其中已毕业的学员不少学生获得“校级优秀毕业生”的称号。良好的培养机制为他们提供了硬件，自学能力，项目经验提高了他们的“软实力”，共同的兴趣激发了他们的热情，团队合作也激发了他们的灵感。”</p>
+                            <div class="fame">
+                              <span>湖南农业大学电子商务系资深教师</span>
+                              <span>复杂系统与电子商务创新实验室副主任</span>
+                            </div>
+                            <div class="other line-h">
+                              4年来指导学生获得挑战杯、计算机、创业比赛等27项大奖（国家级17项），获得大学生创新、科创基金19项资助（省级2项）。
+                            </div>
+                            <div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h3 class="title pd-10">
+                        <div class="word">荣誉和奖项</div>
+                      </h3>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="info pd-10">
+                          <p class="koam line-h">
+                            至今我们实验室已吸纳并培养10期近130余人互联网领域优秀人才，获奖 78 项（国家级41项，省级37项），获基金资助 14 项（省级1项）， 开发系统和网站 30 余项。创新一期培养的7名毕业生在2009年全球金融危机的背景下实现了100%就业率，平均工资为3500元，比普通本科毕业生的平均工资（1825元，智联招聘2009年12月24日统计数据）高出90%以上。
+                            十年来，实验室运行实现常态化，采用项目驱动制因材施教模式，这些都是隐形的宝贵资源。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="sysz pd-10">
+                            <div class="image">
+                              <div class="img">柜子里面的证书照片</div>
+                            </div>
+                          </div>
+                          <div class="sysz info pd-10">
+                            <div class="fame">
+                              <span>获得奖项名称1</span>
+                              <span>获得奖项名称2</span>
+                              <span>获得奖项名称2</span>
+                              <span>获得奖项名称2</span>
+                              <span>获得奖项名称2</span>
+                              <span>获得奖项名称2</span>
+                              <span>获得奖项名称2</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="sysz pd-10">
+                            <div class="image">
+                              <div class="img">墙上的挂壁照片合照</div>
+                            </div>
+                          </div>
+                          <div class="sysz info pd-10">
+                            <div class="fame">
+                              <span>报纸上的内容1</span>
+                              <span>墙上照片上的内容2</span>
+                              <span>墙上照片上的内容3</span>
+                              <span>报纸上的内容1</span>
+                              <span>墙上照片上的内容2</span>
+                              <span>墙上照片上的内容3</span>
+                              <span>报纸上的内容1</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h3 class="title pd-10">
+                        <div class="word">实验室环境</div>
+                      </h3>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="info pd-10">
+                          <p class="koam line-h">
+                            至今我们实验室已吸纳并培养10期近130余人互联网领域优秀人才，获奖 78 项（国家级41项，省级37项），获基金资助 14 项（省级1项）， 开发系统和网站 30 余项。创新一期培养的7名毕业生在2009年全球金融危机的背景下实现了100%就业率，平均工资为3500元，比普通本科毕业生的平均工资（1825元，智联招聘2009年12月24日统计数据）高出90%以上。
+                            十年来，实验室运行实现常态化，采用项目驱动制因材施教模式，这些都是隐形的宝贵资源。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          <div class="ambient pd-10">
+                            <div class="image">
+                              <div class="img">老师办公区照片</div>
+                            </div>
+                            <div class="info">
+                              <p class="hand">老师办公区</p>
+                              <div class="text line-h">我们在中国继续向高端医疗市场提供领先的医疗解决方案，实现从产品和</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          <div class="ambient pd-10">
+                            <div class="image">
+                              <div class="img">沙发照片</div>
+                            </div>
+                            <div class="info">
+                              <p class="hand">休闲讨论区</p>
+                              <div class="text line-h">我们在中国继续向高端医疗市场提供领先的医疗解决方案，实现从产品和</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          <div class="ambient pd-10">
+                            <div class="image">
+                              <div class="img">一排苹果电脑</div>
+                            </div>
+                            <div class="info">
+                              <p class="hand">高级设备区</p>
+                              <div class="text line-h">我们在中国继续向高端医疗市场提供领先的医疗解决方案，实现从产品和</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          <div class="ambient pd-10">
+                            <div class="image">
+                              <div class="img">四个圆桌</div>
+                            </div>
+                            <div class="info">
+                              <p class="hand">小队作战区</p>
+                              <div class="text line-h">我们在中国继续向高端医疗市场提供领先的医疗解决方案，实现从产品</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- 方向介绍 -->
+              <div class="slide-item" data-slide-id="subscribe">
+                <div class="layout animated fadeIn" data-animation="fadeIn" data-animation-delay="60">
+                  <div class="row">
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- 资源推荐 -->
+              <div class="slide-item" data-slide-id="services">
+                <div class="layout animated fadeIn" data-animation="fadeIn" data-animation-delay="60">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      这里是资源库
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task">
-                    <p class="title">性别 * <span class="cue">[没有人妖这个选项]</span></p>
-                    <div class="radio">
-                      <label for="sex1"><input type="radio" name="sex" id="sex1" value="1" checked> 男</label>
-                      <label for="sex2"><input type="radio" name="sex" id="sex2" value="0"> 女</label>
+              <!-- 加入我们 -->
+              <div class="slide-item" data-slide-id="contact">
+                <div class="layout animated fadeIn" data-animation="fadeIn" data-animation-delay="60">
+                  <div class="reg">
+                    <div class="line-text">选择比努力重要,少走弯路才是最快的捷径</div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">姓名 *
+                              <span class="cue">[填写姓名2-4个中文汉字]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <span class="icon icon-user"></span>
+                              <input id="username" type="text" placeholder="请填写姓名">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task task-all student-check">
-                    <p class="title">学号 * <span class="cue">[你的校园卡上的学号]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="student" type="text" placeholder="请填写学号">
-                      <i class="icon"></i>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task">
+                            <p class="title">性别 *
+                              <span class="cue">[没有人妖这个选项]</span>
+                            </p>
+                            <div class="radio">
+                              <label for="sex1">
+                                <input type="radio" name="sex" id="sex1" value="1" checked> 男</label>
+                              <label for="sex2">
+                                <input type="radio" name="sex" id="sex2" value="0"> 女</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task task-all student-check">
+                            <p class="title">学号 *
+                              <span class="cue">[你的校园卡上的学号]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="student" type="text" placeholder="请填写学号">
+                              <i class="icon"></i>
+                            </div>
+                            <p class="student-error"></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p class="student-error"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task">
-                    <p class="title">籍贯(省) * <span class="cue">[招收中国籍农大学生]</span></p>
-                    <div class="place">
-                      <div class="place-t show-border select-province-hook">
-                        <p id="placeProvince" class="place-t-w show-select-hook">请选择</p>
-                        <i class="icon"></i>
-                        <span class="icon icon-down"></span>
-                        <ul class="hide-show show-province-hook"></ul>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task">
+                            <p class="title">籍贯(省) *
+                              <span class="cue">[招收中国籍农大学生]</span>
+                            </p>
+                            <div class="place">
+                              <div class="place-t show-border select-province-hook">
+                                <p id="placeProvince" class="place-t-w show-select-hook">请选择</p>
+                                <i class="icon"></i>
+                                <span class="icon icon-down"></span>
+                                <ul class="hide-show show-province-hook"></ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task">
+                            <p class="title">
+                              <span>籍贯(市/州) * </span>
+                              <span class="cue">[听说你的家乡很美]</span>
+                            </p>
+                            <div class="place">
+                              <div class="place-t show-border select-city-hook">
+                                <p id="placeCity" class="place-t-w show-select-hook">请选择</p>
+                                <i class="icon"></i>
+                                <span class="icon icon-down"></span>
+                                <ul class="hide-show show-city-hook"></ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task">
+                            <p class="title">手机 *
+                              <span class="cue">[用于接收面试短信]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <span class="icon icon-phone"></span>
+                              <input id="phone" type="text" placeholder="填写手机号码">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task">
+                            <p class="title">QQ *
+                              <span class="cue">[主要的社交沟通工具]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <span class="icon icon-qq"></span>
+                              <input id="qq" type="text" placeholder="填写QQ号码">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">邮箱 *
+                              <span class="cue">[务必是常用邮箱]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="email" type="email" placeholder="填写电子邮件地址">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="line-text">活鱼逆流而上,死魚随波逐流</div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">年级 *
+                              <span class="cue">[我们只招收小鲜肉]</span>
+                            </p>
+                            <div class="select show-border select-year-hook">
+                              <p id="grade" class="select-text show-select-hook">请选择</p>
+                              <i class="icon"></i>
+                              <span class="icon icon-down"></span>
+                              <ul class="hide-show hide-show-year show-year-hook"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">学院 *
+                              <span class="cue">[没有学院歧视]</span>
+                            </p>
+                            <div class="select show-border select-college-hook">
+                              <p id="college" class="select-text show-select-hook">请选择</p>
+                              <i class="icon"></i>
+                              <span class="icon icon-down"></span>
+                              <ul class="hide-show show-college-hook">
+                                <li>信息科学技术学院</li>
+                                <li>东方科技学院</li>
+                                <li>理学院</li>
+                                <li>工学院</li>
+                                <li>资源环境学院</li>
+                                <li>农学院</li>
+                                <li>园艺园林学院</li>
+                                <li>植物保护学院</li>
+                                <li>动物科学技术学院</li>
+                                <li>动物医学院</li>
+                                <li>食品科学技术学院</li>
+                                <li>经济学院</li>
+                                <li>商学院</li>
+                                <li>公共管理与法学学院</li>
+                                <li>马克思主义学院</li>
+                                <li>外国语学院</li>
+                                <li>教育学院</li>
+                                <li>生物科学技术学院</li>
+                                <li>体育艺术学院</li>
+                                <li>国际学院</li>
+                                <li>继续教育学院</li>
+                                <li>其他</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">专业 *
+                              <span class="cue">[没有专业限制]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="major" type="text" placeholder="填写专业">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">高考数学成绩 *
+                              <span class="cue">[这都不算什么]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="math" type="text" placeholder="实事求是">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">高考英语成绩 *
+                              <span class="cue">[大学可以改变一切]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="english" type="text" placeholder="实事求是">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">有无推荐人 *
+                              <span class="cue">[说明你挺优秀，我们欢迎]</span>
+                            </p>
+                            <div class="text show-border check-hook">
+                              <input id="referrer" type="text" placeholder="有填写姓名，没有填写无">
+                              <i class="icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="line-text">真的很累吗？累就对了,告诉自己：容易走的都是下坡路。</div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-half">
+                            <p class="title">报名方向 *
+                              <span class="cue">[请深思熟虑，决定了就一直走下去]</span>
+                            </p>
+                            <div class="radio fx fx-hook">
+                              <label for="fx1">
+                                <input type="radio" name="fx" id="fx1" value="产品" checked> 产品</label>
+                              <label for="fx2">
+                                <input type="radio" name="fx" id="fx2" value="前端"> 前端</label>
+                              <label for="fx3">
+                                <input type="radio" name="fx" id="fx3" value="程序"> 程序</label>
+                            </div>
+                            <div class="fx-info">
+                              <div class="info-word" style="display:block">
+                                <p>项目团队的主要负责人，负责项目的初期规划，产品原型构思与设计，项目策划书的设计管理，项目PPT的制作，团队管理等。需要具备较好的沟通协调能力。</p>
+                                <p>1.掌握初步的管理知识。</p>
+                                <p>2.项目的策划与策划书的设计。</p>
+                                <p>3.软件的使用 如：</p>
+                                <p>A)项目原型设计软件（Axure / Sketch），</p>
+                                <p>B)项目思维导图设计软件 （MindManager / XMind）</p>
+                                <p>C)办公软件：Office 三件套（策划书的设计 和 PPT的设计）</p>
+                                <p>D)音视频剪辑与制作：AE PR等。</p>
+                              </div>
+                              <div class="info-word">
+                                <p>现阶段实验室的设计主要分成前端和视觉（UI）两个方向</p>
+                                <p>A: 前端：</p>
+                                <p>1.前端主要以代码编程为主，负责项目前端的代码实现：</p>
+                                <p>2.所需要学习和掌握的必备技能HTML5, CSS3, JavaScript, node.js等</p>
+                                <p>3.掌握基本的ps技术，初级的PHP以及初级的MySql。</p>
+                                <p>B: 视觉：</p>
+                                <p>1.主要是负责产品UI的制作，静态页面的生成，图片的处理，PPT设计。</p>
+                                <p>2.所需学习和掌握的必备技能：Sketch , PS , HTML5, CSS3</p>
+                                <p>3.掌握AE, PR ,以及制作PPT。</p>
+                              </div>
+                              <div class="info-word">
+                                <p>专注Linux/Windows系统、Apache服务器、PHP语言、MySQL与MVC模式的研究与学习。以服务器语言PHP学习为主，并进行数据库的建设。</p>
+                                <p>1.掌握一定的前端基础知识：HTML、CSS、JavaScript、Ajax等。</p>
+                                <p>2、熟悉相关网络协议：HTTP协议，TCP/IP协议。</p>
+                                <p>3、了解后端语言PHP语法，熟练应用流行框架ThinkPHP Yii Laravel。</p>
+                                <p>4、熟悉关系型数据库MySQL，非关系型NoSQL，学会数据库设计思想，熟练数据库语句及数据库的优化配置。</p>
+                                <p>5、熟练服务器Apache Nginx的相关配置且应用Linux Mac Windows操作系统。</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">用自己的话描述CSECL实验室是干什么的（尤其是自己报的方向）？以及自己打算如何在实验室学习？ *
+                              <span class="cue">[了解我们，也了解你自己]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question1" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">简单谈谈你一年内的规划？能否在实验室呆满12个月？*
+                              <span class="cue">[规划！奋斗！成功！]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question2" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">你做人的准则是什么？坚持多久了？*
+                              <span class="cue">[人总是要有原则的]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question3" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">介绍一下自己和取得过的成就 ？*
+                              <span class="cue">[人总有辉煌的时候]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question4" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">对于现状你满意吗？哪些方面你需要加强？*
+                              <span class="cue">[好好想想]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question5" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task task-all">
+                            <p class="title">你觉得我们为什么会录取你？*
+                              <span class="cue">[你觉得呢？]</span>
+                            </p>
+                            <div class="area">
+                              <textarea id="question6" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
+                              <div class="text-number">
+                                <span>0/200</span>
+                                <i class="icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="line">
+                          <div class="task">
+                            <div class="submit">提交</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="error-info">
+                      <div class="show-info">
+                        <span>信息不完整,请检查...</span>
+                      </div>
+                    </div>
+                    <div class="ok-info">
+                      <div class="show-info">
+                        <div class="confirm">
+                          <p class="confirm-title">
+                            <span>依然还有修改的机会</span>
+                          </p>
+                          <div class="confirm-contn">
+                            <span id="form-reset">修改</span>
+                            <span id="form-commit">提交</span>
+                          </div>
+                        </div>
+                        <div class="steup"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task">
-                    <p class="title"><span>籍贯(市/州) * </span><span class="cue">[听说你的家乡很美]</span></p>
-                    <div class="place">
-                      <div class="place-t show-border select-city-hook">
-                        <p id="placeCity" class="place-t-w show-select-hook">请选择</p>
-                        <i class="icon"></i>
-                        <span class="icon icon-down"></span>
-                        <ul class="hide-show show-city-hook"></ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task">
-                    <p class="title">手机 * <span class="cue">[用于接收面试短信]</span></p>
-                    <div class="text show-border check-hook">
-                      <span class="icon icon-phone"></span>
-                      <input id="phone" type="text" placeholder="填写手机号码">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task">
-                    <p class="title">QQ * <span class="cue">[主要的社交沟通工具]</span></p>
-                    <div class="text show-border check-hook">
-                      <span class="icon icon-qq"></span>
-                      <input id="qq" type="text" placeholder="填写QQ号码">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">邮箱 * <span class="cue">[务必是常用邮箱]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="email" type="email" placeholder="填写电子邮件地址">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="line-text">活鱼逆流而上,死魚随波逐流</div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">年级 * <span class="cue">[我们只招收小鲜肉]</span></p>
-                    <div class="select show-border select-year-hook">
-                      <p id="grade" class="select-text show-select-hook">请选择</p>
-                      <i class="icon"></i>
-                      <span class="icon icon-down"></span>
-                      <ul class="hide-show hide-show-year show-year-hook"></ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">学院 * <span class="cue">[没有学院歧视]</span></p>
-                    <div class="select show-border select-college-hook">
-                      <p id="college" class="select-text show-select-hook">请选择</p>
-                      <i class="icon"></i>
-                      <span class="icon icon-down"></span>
-                      <ul class="hide-show show-college-hook">
-                        <li>信息科学技术学院</li>
-                        <li>东方科技学院</li>
-                        <li>理学院</li>
-                        <li>工学院</li>
-                        <li>资源环境学院</li>
-                        <li>农学院</li>
-                        <li>园艺园林学院</li>
-                        <li>植物保护学院</li>
-                        <li>动物科学技术学院</li>
-                        <li>动物医学院</li>
-                        <li>食品科学技术学院</li>
-                        <li>经济学院</li>
-                        <li>商学院</li>
-                        <li>公共管理与法学学院</li>
-                        <li>马克思主义学院</li>
-                        <li>外国语学院</li>
-                        <li>教育学院</li>
-                        <li>生物科学技术学院</li>
-                        <li>体育艺术学院</li>
-                        <li>国际学院</li>
-                        <li>继续教育学院</li>
-                        <li>其他</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">专业 * <span class="cue">[没有专业限制]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="major" type="text" placeholder="填写专业">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">高考数学成绩 * <span class="cue">[这都不算什么]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="math" type="text" placeholder="实事求是">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">高考英语成绩 * <span class="cue">[大学可以改变一切]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="english" type="text" placeholder="实事求是">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">有无推荐人 * <span class="cue">[说明你挺优秀，我们欢迎]</span></p>
-                    <div class="text show-border check-hook">
-                      <input id="referrer" type="text" placeholder="有填写姓名，没有填写无">
-                      <i class="icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="line-text">真的很累吗？累就对了,告诉自己：容易走的都是下坡路。</div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-half">
-                    <p class="title">报名方向 * <span class="cue">[请深思熟虑，决定了就一直走下去]</span></p>
-                    <div class="radio fx fx-hook">
-                      <label for="fx1"><input type="radio" name="fx" id="fx1" value="产品" checked> 产品</label>
-                      <label for="fx2"><input type="radio" name="fx" id="fx2" value="前端"> 前端</label>
-                      <label for="fx3"><input type="radio" name="fx" id="fx3" value="程序"> 程序</label>
-                    </div>
-                    <div class="fx-info">
-              <span class="info-word" style="display:block">项目产品管理及运营（网站、APP和公众号运营,策划文案,产品策划与测试.....
-                .）项目产品管理及运营（网站、APP和公众号运营,策划文案,产品策划与测试......）</span>
-                      <span class="info-word">web前端开发、UI设计（web2.0网页设计,HTML,CSS,JavaScript,jQuery,Ajax......）</span>
-                      <span class="info-word">后端开发、数据库设计、服务器部署等（Linux/Windows系统,Apache服务器,PHP语言,MySQL,MVC模式......）</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">用自己的话描述CSECL实验室是干什么的（尤其是自己报的方向）？以及自己打算如何在实验室学习？ * <span class="cue">[了解我们，也了解你自己]</span></p>
-                    <div class="area">
-                      <textarea id="question1" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">简单谈谈你一年内的规划？能否在实验室呆满12个月？* <span class="cue">[规划！奋斗！成功！]</span></p>
-                    <div class="area">
-                      <textarea id="question2" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">你做人的准则是什么？坚持多久了？* <span class="cue">[人总是要有原则的]</span></p>
-                    <div class="area">
-                      <textarea id="question3" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">介绍一下自己和取得过的成就 ？* <span class="cue">[人总有辉煌的时候]</span></p>
-                    <div class="area">
-                      <textarea id="question4" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">对于现状你满意吗？哪些方面你需要加强？* <span class="cue">[好好想想]</span></p>
-                    <div class="area">
-                      <textarea id="question5" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task task-all">
-                    <p class="title">你觉得我们为什么会录取你？* <span class="cue">[你觉得呢？]</span></p>
-                    <div class="area">
-                      <textarea id="question6" class="show-border" maxlength="200" placeholder="填写内容"></textarea>
-                      <div class="text-number">
-                        <span>0/200</span>
-                        <i class="icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="line">
-                  <div class="task">
-                    <div class="submit">提交</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="error-info">
-              <div class="show-info">
-                <span>信息不完整,请检查...</span>
-              </div>
-            </div>
-            <div class="ok-info">
-              <div class="show-info">
-                <div class="confirm">
-                  <p class="confirm-title"><span>依然还有修改的机会</span></p>
-                  <div class="confirm-contn">
-                    <span id="form-reset">修改</span>
-                    <span id="form-commit">提交</span>
-                  </div>
-                </div>
-                <div class="steup"></div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+    </main>
+    <footer id="awd-site-footer">
+      <div class="copyright animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="500">
+        <p>© 湖南农业大学信息科学技术学院-互联网创新实验室</p>
       </div>
-    </section>
+    </footer>
+
   </div>
+  <script type="text/javascript" src="assets/js/jquery.v1.11.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/china_cities.min.js"></script>
+  <script type="text/javascript" src="assets/js/perfect-scrollbar.min.js"></script>
+  <script type="text/javascript" src="assets/js/canvas.js"></script>
+  <script type="text/javascript" src="assets/js/index.js"></script>
 </body>
-<script src="./assets/js/jquery.v1.11.1.min.js"></script>
-<script src="./assets/js/particles.js"></script>
-<script src="./assets/js/particles.param.js"></script>
-<script src="./assets/js/china_cities.min.js"></script>
-<script src="./assets/js/index.js"></script>
-<script src="./assets/js/signup.js"></script>
 
 </html>
