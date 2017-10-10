@@ -140,7 +140,7 @@ function showData(getToken) {
   var appendHtml = '';
   $.ajax({
     type: 'GET',
-    url: '/v1/applications/show?role=api&tolen='+getToken,
+    url: '/v1/applications/show?role=api&token='+getToken,
     success: function(res){
       // token 匹配正确
       if (res.success === 'success') {
