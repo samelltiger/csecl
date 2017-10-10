@@ -1,192 +1,470 @@
+/*====================================================
+  home.css
+====================================================*/
+/* 公共 */
+/* //////////////////////////////////// */
 
-.page-wrapper{
-    width: 100%;
-    height: 100%;
-    background: #666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#particles{
-    position: absolute;
-    top: 0px;
-    left: 0px; 
-    width: 100%; 
-    height: 100%; 
-    background-size: cover; 
-    background-position: 50% 50%; 
-    background-repeat: no-repeat; 
-}
-#particles canvas{
-    display:block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -1
-}
-.container{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #002B5A; 
-    transition: all 10s ease-in;
-}
-.container .logo-wrapper{
-    position: absolute;
-    top: 10%;
-    left: 0;
-    right: 0px;
-    height: 150px;
-}
-.container .logo-wrapper .logo-img{
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    font-size:25px; 
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-.container .logo-wrapper .logo-info{
-    color: #fff;
-    line-height: 25px;
+.home {
     font-size: 14px;
-    text-align: center;
-}       
-/*.container .nav{*/
-    /*display: flex;*/
-/*}*/
-.container .nav li{
-    flex: 1;
-    width: 140px;
-    height: 40px;
-    line-height: 40px;
-    padding: 0px 20px;
-    text-align: center;
-    margin: 5px;
-    color: #333;
-    border-radius: 4px;
-    background: #ffffff;
-    opacity: 0.7;
-    transition: all 10s ease-in;
-    cursor: pointer
 }
-.content{
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    position: relative;
-    z-index: 10;
-    display: none;
+.home .row{
+    margin-bottom: 50px;
 }
-@media (min-width: 992px) {
-    .content {
-        width: 960px;
-        height: 710px;
-        border-radius: 4px;
-    }
+/* 行高 */
+.home .line-h{
+    line-height: 24px;
 }
-@media (min-width: 1200px) {
-    .content {
-        width: 960px;
-        height: 710px;
-        border-radius: 4px;
-    }
+/* 10边距 */
+.home .pd-10{
+    padding: 10px;
 }
-.content .hd{
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #d3d3d3;
-    background: #f0f0f0;
-    text-align: center;
-    position: relative;
-    z-index: 20;
+/* 标题 */
+.home .title{
+    letter-spacing: 0px;
+    margin-bottom: 30px;
 }
-@media (min-width: 992px) {
-    .content .hd {
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-}
-@media (min-width: 1200px) {
-    .content .hd {
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-}
-.content .hd h2{
-    height: 30px;
-    line-height: 30px;
-    font-size: 18px;
+.home .title .word{
     padding: 10px 0;
 }
-.content .hd h2 span.icon{
-    float: right;
+/* 图片 */
+.home .image {
+    padding: 10px;
+    background: rgba(10,10,10,0.4)
+}
+.home .image .img{
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-size: 18px;
+}
+
+/* 区域 */
+/* //////////////////////////////////// */
+
+/* 10张轮播图 */
+.home .pics{
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.home .pics .img{
+    height: 450px;
+}
+/* 6个圆环 */
+.home .pi{
+    width: 120px;
+    height: 120px;
+    margin: 30px auto 50px auto;
+    text-align: center;
+    border:2px solid rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.home .pi div span{
     line-height: 30px;
+    display: block;
+    font-size: 20px;
+}
+.home .pi div span em{
+    font-style: normal;
+    font-size: 30px;
+}
+/* 老师照片 */
+
+.home .t-avatar .img{
+    height: 340px;
+}
+/* //////////////////////////////////// */
+/* 文字排版 */
+.home .info .koam{
+    font-size: 16px;
+    line-height: 25px;
+}
+.home .info .fame{
+    margin-bottom: 10px;
+}
+.home .info .fame span{
+    font-size: 12px;
+    display: inline-block;
+    background:rgba(0,0,0,0.4);
+    color: #fff;
+    line-height: 20px;
+    padding: 0px 5px;
     margin-right: 10px;
+    letter-spacing: 0px;
 }
-.content .bd{
+.home .info .say{
+    margin-bottom: 10px;
+}
+
+/* 环境照片 */
+.home .ambient .hand{
+    font-size: 16px;
+    font-weight: 500;
+}
+.home .ambient .text{
+    min-height: 88px;
+}
+.home .ambient .image{
+    margin-bottom: 20px;
+}
+.home .ambient .image .img{
+    height: 160px;
+}
+/* 荣誉和奖项 */
+
+.home .sysz .image .img{
+    height: 300px;
+}
+.home .sysz .fame span{
+    font-size: 14px;
+    display: block;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    line-height: 25px;
+    padding: 0px 8px;
+    margin: 0 0 8px 0;
+    letter-spacing: 0px;
+}
+
+/*====================================================
+  subscribe.css
+====================================================*/
+.subscribe{
+    
+}
+
+
+
+/*====================================================
+  contact.css
+====================================================*/
+.reg {
+    text-align: left;
+  }
+  .reg .line-text{
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 15px;
+  }
+  .reg .line{
+    display: flex;
+  }
+  .reg .line .task{
+    flex: 1;
+    padding:10px 15px;
+  }
+  .reg .line .task .text{
+    border: 2px solid #333;
+    padding: 5px;
+    display: flex;
+  }
+  .reg .line .task .text input{
+    border: none;
+    flex: 1;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    text-indent: 5px;
+    background: transparent;
+  }
+  
+  
+  .reg .line .task .icon{
+    flex: 25px 0 0;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+    
+  }
+  .reg .line .task .icon:before{
+    border-color: transparent;
+    background-color: transparent; 
+    color: #333;
+  }
+  
+  
+  .reg .line .task .title{
+    line-height: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .reg .line .task .title span.cue{
+    font-size: 12px;
+    color: #333;
+    float: right;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+  }
+  .reg .line .task:hover .title span.cue{
+    opacity: 1;
+  }
+  
+  
+  
+  .reg .line .task i.icon-ok{
+    color:#5597F5;
+  }
+  .reg .line .task i.icon-close:before{
+    color:#d9534f;
+  }
+  
+  
+  .reg .line .task .select{
+    border: 2px solid #333;
+    line-height: 25px;
+    padding: 5px;
+    display: flex;
+    position: relative;
+  }
+  .reg .line .task .select .select-text{
+    flex: 1;
+    margin: 0px;
+    text-indent: 5px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  
+  .reg .line .task .radio{
+    display: flex
+  }
+  .reg .line .task .radio label{
+    flex: 1;
+    display: block;
+    padding-left:0px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  
+  .reg .line .task .fx{
+    margin-bottom: 15px;
+  }
+  .reg .line .task .fx label{
+    padding: 0px;
+    text-align: center;
+  }
+  .reg .line .task .fx-info{
+    min-height: 50px;
+    line-height: 25px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .reg .line .task .fx-info .info-word{
+    display: none;
+    color: #333
+  }
+  
+  
+  
+  .reg .line .task .place{
+    display: flex;
+  }
+  .reg .line .task .place-t{
+    display: flex;
+    flex: 1;
+    border: 2px solid #333;
+    padding: 5px;
+    position: relative;
+  }
+  .reg .line .task .place-t .place-t-w{
+    flex: 1;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    margin: 0px;
+    color: #666;
+    text-indent: 5px;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  
+  
+  .reg .line .task .area {
+    position: relative;
+  }
+  .reg .line .task .area textarea{
+    min-height: 100px;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+    background: transparent;
+  }
+  
+  .reg .line .task .area .text-number{
     position: absolute;
-    top: 51px;
-    left: 0px;
+    right: 8px;
+    bottom: 8px;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    color: #999999
+  }
+  .reg .line .task .area .text-number i{
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    top: 2px
+  }
+  
+  
+  .reg .line .task .submit{
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background: #333;
+    color: #fff;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+  }
+  .reg .line .task .submit:hover{
+    background: #252525
+  }
+  .reg .line .task-half .title{
+    margin-bottom: 20px;
+  }
+  
+  .reg .line .show-border:hover{
+    border-color: #5597F5
+  }
+  
+  
+  .reg .line .student-check{
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .reg .line .student-check .student-error{
+    position: absolute;
     bottom: 0px;
-    right: 0px;
-    background: #f6f6f6;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.content .bd .bd-wrapper{
+    left: 20px;
+    margin:0px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #d9534f;
+    display: none;
+  }
+  
+  
+  .reg .ok-info{
+    width: 100%;
+    background: rgba(255,255,255,0.9);
+    position: fixed;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    color: #333;
+    display: none;
+  }
+  .reg .ok-info .show-info{
+    display: flex;
     width: 100%;
     height: 100%;
-    overflow-y:scroll; 
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-
-.reg .layout{
-    width: auto;
-    margin: 0 auto;
-}
-@media (min-width: 992px) {
-    .reg .layout {
-        width: 600px;
-    }
-}
-@media (min-width: 1200px) {
-    .reg .layout {
-        width: 600px;
-    }
-}
-.reg .layout .line-text{
-    background: none;
-    border: none;
-}
-.reg .layout .ok-info,
-.reg .layout .error-info{
-    position: absolute;
-    top: 0px;
-}
-.reg .layout .ok-info{
-    height: auto;
-}
-
-
-.member{
-    width: 0px;
-    height: 0px;
-    position: relative;
-    z-index: 2;
-    background: red
-}
-.member li{
-    position: absolute;
-    width: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 30px;
+  }
+  .reg .ok-info .show-info .confirm{
+    width: 200px;
+    height: 85px;
+    font-size: 14px;
+    background: #f6f6f6;
+    border: 1px solid #ccc;
+  
+  }
+  .reg .ok-info .show-info .confirm .confirm-title{
+    margin: 0;
+    line-height: 45px;
+    border-bottom: 1px solid #ccc;
+  }
+  .reg .ok-info .show-info .confirm .confirm-contn{
+    display: flex;
+  }
+  .reg .ok-info .show-info .confirm .confirm-contn span{
+    flex: 1;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+  }
+  .reg .ok-info .show-info .confirm .confirm-contn span:hover{
+    color: #5597F5;
+  }
+  .reg .ok-info .show-info .confirm .confirm-contn span#form-reset{
+    border-right: 1px solid #ccc;
+  }
+  .reg .ok-info .show-info .icon{
+    font-size: 40px;
+  }
+  .reg .ok-info .show-info .icon-ok{
+    color: #5597F5
+  }
+  .reg .ok-info .show-info .icon-close{
+    color: #d9534f
+  }
+  .reg .error-info{
+    width: 100%;
     height: 40px;
-    border-radius: 50%;
-    background: yellow;
-    transition: all 5s ease-in;
-}
-
+    line-height:40px;
+    position: fixed;
+    left: 0;
+    top:0;
+    background: #d9534f;
+    opacity: 0.9;
+    color: #fff;
+    text-align: center;
+    display: none;
+  }
+  
+  .reg .hide-show{
+    display: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: -2px;
+    right: -2px;
+    top: 100%;
+    z-index: 2;
+    height: 150px;
+    min-width: 100%;
+    border: 2px solid #333;
+    overflow-y: scroll;
+    background:#fff;
+  
+  }
+  .reg .hide-show li{
+    font-size: 14px;
+    text-indent: 10px;
+    color: #666;
+    line-height: 25px;
+    height: 25px;
+    overflow: hidden;
+  }
+  .reg .hide-show li:hover{
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .reg .hide-show-year{
+    height: 70px;
+    z-index: 10;
+  }
