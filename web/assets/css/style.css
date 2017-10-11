@@ -549,15 +549,13 @@ strong {
 }
 
 .slides {
-    display: table;
-    table-layout: fixed;
     height: 100%;
     width: 100%;
     text-align: left
 }
 
 .slides-wrap {
-    display: table-cell;
+    height: 100%;
     vertical-align: middle;
 }
 
@@ -574,7 +572,7 @@ strong {
 
 .slide-item.active {
     display: block;
-    height: auto;
+    height: 100%;
 }
 
 .slide-item .link {
