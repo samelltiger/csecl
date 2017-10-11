@@ -1,135 +1,137 @@
 
 /*===================================
-* 整个页面的js
+* 调用
 ===================================*/
 $(function () {
-
-  // 下拉菜单
-  function Menu() {
-    $(".menu-toggle").on('click', function (e) {
-      $(this).toggleClass('opened');
-      $("#awd-site-nav").toggleClass('active');
-    });
-  }
-  
-  // 滚动插件
-  function ScorllBar(){
-    var ps = new PerfectScrollbar('.sections-block', {
-      wheelSpeed: 2,
-      wheelPropagation: true,
-      minScrollbarLength: 20,
-      suppressScrollX: true
-    });
-  }
-
-  //切换动态
-  function ContentSlider() {
-    $('.slide-item').first().addClass('active');
-
-    var slide_timeout;
-    var slide_in_timeout;
-
-    var $bg = $('#bg');
-    var $menu = $('#awd-site-nav');
-    var menu_elem = $menu.find('a');
-    var menu_elem_active = $menu.find('a.active');
-
-    menu_elem.on('click', function (e) {
-      e.preventDefault();
-      clearTimeout(slide_timeout);
-      // var oldhtml = $('.sections-block').html();
-      // $('.sections-block').html('');
-      // setTimeout(function () {
-      //   $('.sections-block').html(oldhtml);
-      //   ps.update();
-      // }, 500);
-      var position = $(this).offset();
-      var elem = $(this);
-      var goToSlide = elem.data('slide');
-      var goToSlideBg = $bg.find('.bg-' + goToSlide);
-
-      $bg.find('.awd-site-bg').removeClass('active');
-      $('#awd-site-wrap').removeClass('bg-' + $menu.find('a.active').data('slide')).addClass("bg-" + goToSlide);
-      goToSlideBg.css({
-        "left": position.left + (elem.outerWidth() / 2) - 50,
-        "top": position.top + (elem.outerHeight() / 2) - 50
-      });
-      goToSlideBg.addClass('active');
-
-      if ($(window).width() < 769) {
-        $menu.removeClass('active');
-        $(".menu-toggle").removeClass('opened');
-      }
-
-      if (!elem.hasClass('active')) {
-
-        menu_elem.removeClass('active');
-        elem.addClass('active');
-
-        slide_timeout = setTimeout(function () {
-          var goToSlideContent = $('.slide-item[data-slide-id=' + goToSlide + ']');
-          if (goToSlideContent) {
-            $('.slide-item').removeClass('active');
-            goToSlideContent.addClass('active');
-
-            if (!$('body').hasClass('mobile')) {
-
-              if (goToSlideContent.hasClass('active')) {
-
-                clearTimeout(slide_in_timeout);
-
-                $('.start .slide-item .animated').each(function () {
-                  var elem = $(this);
-                  var animation = elem.data('animation');
-                  elem.removeClass(animation + " visible");
-                });
-
-                $('.active').find('.animated').each(function () {
-
-                  var elem = $(this);
-                  var animation = elem.data('animation');
-
-                  if (!elem.hasClass('visible')) {
-                    var animationDelay = elem.data('animation-delay');
-                    if (animationDelay) {
-                      slide_in_timeout = setTimeout(function () {
-                        elem.addClass(animation + " visible");
-                      }, animationDelay);
-                    } else {
-                      elem.addClass(animation + " visible");
-                    }
-                  }
-                });
-              }
-
-            }
-
-          }
-        }, 0);
-      }
-    });
-  }
-
-  // 执行
   Menu();
   ContentSlider();
   ScorllBar();
+  cavansLines();
 });
 
-
 /*===================================
-* 申请表的 js
+* 和滚动组件配合使用获取的页面html片段
+* ContentSlider() 调用后使用dom
 ===================================*/
 
-$(function () {
+var dom = getDom();
+function getDom() {
+  var arr = ['home','subscribe','services','contact'];
+  var dom = {};
+  $.each($('.slide-item'),function(index,item){
+    dom[arr[index]] = $(item).html();
+  });
+  return dom;
+}
 
+/*===================================
+* 下拉菜单
+===================================*/
+
+function Menu() {
+  $(".menu-toggle").on('click', function (e) {
+    $(this).toggleClass('opened');
+    $("#awd-site-nav").toggleClass('active');
+  });
+}
+
+/*===================================
+* 滚动插件 ContentSlider() 调用后使用ps1
+===================================*/
+
+var ps1;
+function ScorllBar() {
+  var dom1 = document.querySelector('.slides-wrap');
+  ps1 = new PerfectScrollbar(dom1, {
+    wheelSpeed: 2,
+    wheelPropagation: true,
+    suppressScrollX: true,
+    swipePropagation: true
+  });
+}
+// ContentSlider() 调用后使用mScorllBar()
+function mScorllBar(dom) {
+  new PerfectScrollbar(dom, {
+    wheelSpeed: 2,
+    wheelPropagation: true,
+    suppressScrollX: true,
+    swipePropagation: true
+  });
+}
+
+/*===================================
+* 切换动态
+===================================*/
+
+function ContentSlider() {
+  $('.slide-item').first().addClass('active');
+  // 取到 背景容器
+  var $bg = $('#bg');
+  // 取到导航容器
+  var $menu = $('#awd-site-nav');
+  // 取到导航里面的每个菜单
+  var menu_elem = $menu.find('a');
+  // 取到当前的激活菜单
+  var menu_elem_active = $menu.find('a.active');
+
+  // 菜单点击的时候
+  menu_elem.on('click', function (e) {
+    e.preventDefault();
+    // 得到当前位置
+    var position = $(this).offset();
+    var elem = $(this);
+    // 得到data-slide里面的值
+    var goToSlide = elem.data('slide');
+    // 在背景盒子中找到对应的值
+    var goToSlideBg = $bg.find('.bg-' + goToSlide);
+
+    // 去除掉所有激活样式
+    $bg.find('.awd-site-bg').removeClass('active');
+    $('#awd-site-wrap')
+      .removeClass('bg-' + $menu.find('a.active').data('slide'))
+      .addClass("bg-" + goToSlide);
+    goToSlideBg.css({
+      "left": position.left + (elem.outerWidth() / 2) - 50,
+      "top": position.top + (elem.outerHeight() / 2) - 50
+    });
+    goToSlideBg.addClass('active');
+
+    // 手机端
+    if ($(window).width() < 769) {
+      $menu.removeClass('active');
+      $(".menu-toggle").removeClass('opened');
+    }
+    if (!elem.hasClass('active')) {
+      menu_elem.removeClass('active');
+      elem.addClass('active');
+    }
+    // 针对滚动的特殊代码
+    $('.slides-wrap').html('');
+    ps1.update();
+    $('.slides-wrap').html(dom[goToSlide]);
+    $.each($('.hide-show'),function (i,v) {
+      mScorllBar(v);
+    });
+
+    // 调用表单的js
+    if(goToSlide === 'contact'){
+      upContact();
+    }
+  });
+}
+
+/*===================================
+* 报名表的 js 点击申请表才会被调用
+===================================*/
+
+function upContact() {
   // 引入china_cities.min.js 
   var citMap = china_cities;
   var signup = {
     postData: '/v1/applications/createapp?role=api',
     checkNumber: '/v1/applications/chk?role=api'
   };
-  var $content = $('.content');
+  var $content = $(document);
 
   // 省份 县市选择
   function selectContry() {
@@ -144,12 +146,12 @@ $(function () {
       }
     });
     // 点击选择省份
-    $provinceSelect.click(function (e) {
+    $provinceSelect.on('click',function (e) {
       e.stopPropagation();
       $showProvince.slideToggle();
     });
     // 省份未选择
-    $citySelect.click(function (e) {
+    $citySelect.on('click',function (e) {
       e.stopPropagation();
       if ($showCity.find('li').length) {
         $showCity.slideToggle()
@@ -159,7 +161,7 @@ $(function () {
     });
     // 省份列表项被点击插入省份的区域
     $.each($showProvince.find('li'), function (index, value) {
-      $(value).click(function (e) {
+      $(value).on('click',function (e) {
         e.stopPropagation();
         $provinceSelect.find('.show-select-hook').html($(this).html());
         $provinceSelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
@@ -173,7 +175,7 @@ $(function () {
           }
         });
         $.each($showCity.find('li'), function (key, item) {
-          $(item).click(function (e) {
+          $(item).on('click',function (e) {
             e.stopPropagation();
             $citySelect.find('.show-select-hook').html($(this).html()).attr('title', $(this).html());
             $citySelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
@@ -182,7 +184,7 @@ $(function () {
         })
       })
     });
-    $content.click(function () {
+    $content.on('click',function () {
       $showProvince.slideUp();
       $showCity.slideUp();
     })
@@ -197,19 +199,19 @@ $(function () {
     $.each(yearList, function (index, value) {
       $showYear.append('<li >' + value + '</li>')
     });
-    $yearSelect.click(function (e) {
+    $yearSelect.on('click',function (e) {
       e.stopPropagation();
       $showYear.slideToggle();
     });
     $.each($showYear.find('li'), function (key, item) {
-      $(item).click(function (e) {
+      $(item).on('click',function (e) {
         e.stopPropagation();
         $yearSelect.find('.show-select-hook').html($(this).html());
         $yearSelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
         $showYear.slideUp();
       })
     });
-    $content.click(function () {
+    $content.on('click',function () {
       $showYear.slideUp();
     })
   }
@@ -218,19 +220,19 @@ $(function () {
   function selectUnvetsity() {
     var $collegeSelect = $('.select-college-hook');
     var $showCollege = $('.show-college-hook');
-    $collegeSelect.click(function (e) {
+    $collegeSelect.on('click',function (e) {
       e.stopPropagation();
       $showCollege.slideToggle();
     });
     $.each($showCollege.find('li'), function (key, item) {
-      $(item).click(function (e) {
+      $(item).on('click',function (e) {
         e.stopPropagation();
         $collegeSelect.find('.show-select-hook').html($(this).html());
         $collegeSelect.find('.show-select-hook').next().removeClass('icon-close').addClass('icon-ok');
         $showCollege.slideUp();
       })
     });
-    $content.click(function () {
+    $content.on('click',function () {
       $showCollege.slideUp();
     })
   }
@@ -240,7 +242,7 @@ $(function () {
     var $selectRod = $('.fx-hook label');
     var $showConeb = $('.fx-info .info-word');
     $.each($selectRod, function (index, value) {
-      $(value).click(function () {
+      $(value).on('click',function () {
         $showConeb.hide();
         $showConeb.eq(index).show();
       })
@@ -252,7 +254,7 @@ $(function () {
     var $input = $('input[type!=radio],textarea');
     var focusColor = '#5597F5';
     var defaultColor = '#333';
-    $input.click(function (e) {
+    $input.on('click',function (e) {
       if (e.target.tagName === 'TEXTAREA') {
         $input.css('border-color', defaultColor);
         $(this).css('border-color', focusColor)
@@ -266,7 +268,7 @@ $(function () {
   function postData() {
     var $okInfo = $('.ok-info');
     var $errorInfo = $('.error-info');
-    $('.reg .submit').click(function () {
+    $('.reg .submit').on('click',function () {
       var $allIcon = $('.reg i.icon');
       var $ok = $('.reg i.icon-ok');
       if ($ok.length < 19) {
@@ -312,10 +314,10 @@ $(function () {
         var $steup = $('.steup');
         // 弹出正在提交界面
         $okInfo.fadeIn();
-        $('#form-reset').click(function () {
+        $('#form-reset').on('click',function () {
           $okInfo.fadeOut();
         });
-        $('#form-commit').click(function () {
+        $('#form-commit').on('click',function () {
           $('.confirm').hide();
           $steup.html('<p><img src="./assets/images/loading.gif"></p><p><span>正在验证数据...</span></p>');
           setTimeout(function () {
@@ -424,7 +426,6 @@ $(function () {
       });
     }
   }
-
   // 执行
   selectClass();
   selectContry();
@@ -433,4 +434,127 @@ $(function () {
   focusColor();
   checkedData();
   postData();
-});
+}
+
+/*===================================
+* 线条的 cavans
+===================================*/
+
+function cavansLines(){
+  var awd_bg_animated = true;
+  var awd_bg_number_of_curves = 64;
+
+  var canvas = document.getElementById("awd-site-canvas");
+  var ctx = canvas.getContext("2d");
+  window.requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  var curves_array = [];
+  var curve = function (cp1x, cp1y, cp2x, cp2y, x, y, cp1xvx, cp1xvy, cp1yvx, cp1yvy, cp2xvx, cp2xvy, cp2yvx, cp2yvy) {
+    this.cp1x = cp1x;
+    this.cp1y = cp1y;
+    this.cp2x = cp2x;
+    this.cp2y = cp2y;
+    this.x = x;
+    this.y = y;
+
+    this.cp1xvx = cp1xvx;
+    this.cp1xvy = cp1xvy;
+    this.cp1yvx = cp1yvx;
+    this.cp1yvy = cp1yvy;
+
+    this.cp2xvx = cp2xvx;
+    this.cp2xvy = cp2xvy;
+    this.cp2yvx = cp2yvx;
+    this.cp2yvy = cp2yvy;
+  };
+  function awdCanvasResize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  function awdCanvasInit() {
+    for (var i = 0; i < awd_bg_number_of_curves; i++) {
+      var cp1x = Math.random() * canvas.width;
+      var cp1y = Math.random() * canvas.height;
+      var cp2x = Math.random() * canvas.width;
+      var cp2y = Math.random() * canvas.height;
+      var x = 0;
+      var y = 0;
+
+      var cp1xvx = Math.random() * 2 - 1;
+      var cp1xvy = Math.random() * 2 - 1;
+
+      var cp1yvx = Math.random() * 2 - 1;
+      var cp1yvy = Math.random() * 2 - 1;
+
+      var cp2xvx = Math.random() * 2 - 1;
+      var cp2xvy = Math.random() * 2 - 1;
+
+      var cp2yvx = Math.random() * 2 - 1;
+      var cp2yvy = Math.random() * 2 - 1;
+
+      curves_array.push(
+        new curve(
+          cp1x, cp1y, cp2x, cp2y,
+          x, y,
+          cp1xvx, cp1xvy, cp1yvx, cp1yvy,
+          cp2xvx, cp2xvy, cp2yvx, cp2yvy
+        )
+      );
+    }
+  }
+  function awdCanvasDraw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = $("#awd-site-wrap").css('color');
+
+    for (var i = 0; i < curves_array.length; i++) {
+
+      ctx.beginPath();
+      ctx.moveTo(-100, canvas.height + 100);
+      ctx.bezierCurveTo(
+        curves_array[i].cp1x, curves_array[i].cp1y,
+        curves_array[i].cp2x, curves_array[i].cp2y,
+        canvas.width + 100, curves_array[i].y - 100
+      );
+      ctx.stroke();
+
+      if (curves_array[i].cp1x < 0 || curves_array[i].cp1x > canvas.width) {
+        curves_array[i].cp1x -= curves_array[i].cp1xvx;
+        curves_array[i].cp1xvx *= -1;
+      }
+      if (curves_array[i].cp1y < 0 || curves_array[i].cp1y > canvas.height) {
+        curves_array[i].cp1y -= curves_array[i].cp1yvy;
+        curves_array[i].cp1yvy *= -1;
+      }
+
+      if (curves_array[i].cp2x < 0 || curves_array[i].cp2x > canvas.width) {
+        curves_array[i].cp2x -= curves_array[i].cp2xvx;
+        curves_array[i].cp2xvx *= -1;
+      }
+      if (curves_array[i].cp2y < 0 || curves_array[i].cp2y > canvas.height) {
+        curves_array[i].cp2y -= curves_array[i].cp2yvy;
+        curves_array[i].cp2yvy *= -1;
+      }
+
+      curves_array[i].cp1y += curves_array[i].cp1yvy;
+      curves_array[i].cp1x += curves_array[i].cp1xvx;
+      curves_array[i].cp2x += curves_array[i].cp2xvx;
+    }
+    requestAnimFrame(awdCanvasDraw);
+  }
+  (function awdCanvas() {
+    awdCanvasResize();
+    awdCanvasInit();
+    awdCanvasDraw();
+  })()
+}
+//
+
