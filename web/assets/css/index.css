@@ -12,7 +12,7 @@
 }
 /* 行高 */
 .home .line-h{
-    line-height: 24px;
+    line-height: 21px;
 }
 /* 10边距 */
 .home .pd-10{
@@ -34,13 +34,11 @@
 .home .image .img{
     width: 100%;
     background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    font-size: 18px;
 }
-
+.home .image .img img{
+  display: block;
+  width: 100%;
+}
 /* 区域 */
 /* //////////////////////////////////// */
 
@@ -49,9 +47,157 @@
     padding: 10px;
     margin-bottom: 50px;
 }
-.home .pics .img{
-    height: 450px;
+.home .pics .image .img{
+  overflow: hidden;
 }
+.home .info.txt{
+  text-align: center;
+  line-height: 50px;
+}
+.home .pics .image .img .father{
+  width: 1000%;
+  height: 100px;  
+  animation:change 60s ease-out infinite;
+  -webkit-animation:change 60s ease-out infinite;
+}
+.home .pics .image .img .father .son{
+  width: 10%;
+  float: left;
+  position: relative;
+}
+.home .pics .image .img .father .son .txt{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: rgba(0,0,0,0.5)
+}
+.home .pics .image .img .father:hover{
+  animation-play-state:paused;
+}
+@keyframes change{
+  0%{
+    margin-left: 0;
+  }
+  10%{
+    margin-left: 0;
+  }
+  11%{
+    margin-left: -100%;
+  }
+  21%{
+    margin-left: -100%;
+  }
+  22%{
+    margin-left: -200%;
+  }
+  32%{
+    margin-left: -200%;
+  }
+  33%{
+    margin-left: -300%;
+  }
+  43%{
+    margin-left: -300%;
+  }
+  44%{
+    margin-left: -400%;
+  }
+  54%{
+    margin-left: -400%;
+  }
+  55%{
+    margin-left: -500%;
+  }
+  65%{
+    margin-left: -500%;
+  }
+  66%{
+    margin-left: -600%;
+  }
+  76%{
+    margin-left: -600%;
+  }
+  77%{
+    margin-left: -700%;
+  }
+  87%{
+    margin-left: -700%;
+  }
+  88%{
+    margin-left: -800%;
+  }
+  99%{
+    margin-left: -800%;
+  }
+  100%{
+    margin-left: -900%;
+  }
+}
+@-webkit-keyframes change{
+  0%{
+    margin-left: 0;
+  }
+  10%{
+    margin-left: 0;
+  }
+  11%{
+    margin-left: -100%;
+  }
+  21%{
+    margin-left: -100%;
+  }
+  22%{
+    margin-left: -200%;
+  }
+  32%{
+    margin-left: -200%;
+  }
+  33%{
+    margin-left: -300%;
+  }
+  43%{
+    margin-left: -300%;
+  }
+  44%{
+    margin-left: -400%;
+  }
+  54%{
+    margin-left: -400%;
+  }
+  55%{
+    margin-left: -500%;
+  }
+  65%{
+    margin-left: -500%;
+  }
+  66%{
+    margin-left: -600%;
+  }
+  76%{
+    margin-left: -600%;
+  }
+  77%{
+    margin-left: -700%;
+  }
+  87%{
+    margin-left: -700%;
+  }
+  88%{
+    margin-left: -800%;
+  }
+  99%{
+    margin-left: -800%;
+  }
+  100%{
+    margin-left: -900%;
+  }
+}
+
 /* 6个圆环 */
 .home .pi{
     width: 120px;
@@ -75,11 +221,7 @@
     font-style: normal;
     font-size: 30px;
 }
-/* 老师照片 */
 
-.home .t-avatar .img{
-    height: 340px;
-}
 /* //////////////////////////////////// */
 /* 文字排版 */
 .home .info .koam{
@@ -114,14 +256,9 @@
 .home .ambient .image{
     margin-bottom: 20px;
 }
-.home .ambient .image .img{
-    height: 160px;
-}
+
 /* 荣誉和奖项 */
 
-.home .sysz .image .img{
-    height: 300px;
-}
 .home .sysz .fame span{
     font-size: 14px;
     display: block;
@@ -134,13 +271,86 @@
 }
 
 /*====================================================
+  services.css
+====================================================*/
+
+.services a{
+  color: #fff
+}
+.services .item-wrapper{
+  padding: 10px;
+}
+.services .item-wrapper .title{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.services .item-wrapper .items{
+  margin-bottom: 30px;
+}
+.services .item-wrapper .items .item{
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  display: flex;
+  background: rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+.services .item-wrapper .items .item:hover{
+  background:rgba(8, 154, 232, 0.4);
+}
+.services .item-wrapper .items .item span{
+  flex: 120px 0 0;
+}
+.services .item-wrapper .items .item a{
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.services .item-wrapper .items .book{
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  background: rgba(0,0,0,0.2);
+}
+.services .item-wrapper .items .book span{
+  display: inline-block;
+}
+/*====================================================
   subscribe.css
 ====================================================*/
 .subscribe{
-    
+  font-size:14px;
 }
-
-
+.subscribe .row{
+  margin-bottom: 40px;
+}
+.subscribe .image{
+  padding: 10px;
+}
+.subscribe .info{
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #555;
+  background: rgba(255,255,255,0.1);
+}
+.subscribe p{
+  margin-bottom: 5px;
+}
+.subscribe .info-txt{
+  font-size:16px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.subscribe .list-wrapper{
+  padding-left: 20px;
+}
+.subscribe .title {
+  text-align: center;
+  font-size: 22px;
+  line-height: 70px;
+  margin-bottom: 20px;
+}
 
 /*====================================================
   contact.css
@@ -266,7 +476,9 @@
     display: none;
     color: #333
   }
-  
+.reg .line .task .fx-info .info-word p{
+  margin: 0;
+}
   
   
   .reg .line .task .place{
@@ -308,7 +520,7 @@
   .reg .line .task .area .text-number{
     position: absolute;
     right: 8px;
-    bottom: 8px;
+    bottom: 12px;
     font-size: 12px;
     height: 20px;
     line-height: 20px;
@@ -424,7 +636,7 @@
     width: 100%;
     height: 40px;
     line-height:40px;
-    position: fixed;
+    position: absolute;
     left: 0;
     top:0;
     background: #d9534f;
