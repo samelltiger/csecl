@@ -81,6 +81,8 @@ return [
                             'POST upda'  => 'upda',
                             'POST dele'  => 'dele',
                             'POST chk'  => 'chk',
+                            'POST set'  => 'set',
+                            'GET status'  => 'status',
                             //rource
                             'GET getrou/<type:\d+>'  => 'getrou',
 

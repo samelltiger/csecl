@@ -2,6 +2,7 @@
 namespace csecl\modules\v1\controllers;
 use csecl\models\Application;
 use csecl\models\Question;
+use csecl\models\Open;
 use yii\helpers\ArrayHelper;
 use csecl\modules\v1\controllers\common\BaseController;
 use Yii;
@@ -107,6 +108,11 @@ class ApplicationController extends BaseController
 
     //填写报名
     public function actionCreateapp(){
+        //检测报名状态是否开启
+        $model = Open::findOne('1');
+        if(!$model->status)
+            return $this->renderJson([] , 0 , 200 , "当前时间未开启报名状态");
+
         $data = Yii::$app->request->post();
         if(!isset($data['application']))  
             return $this->renderJson([] , 0 , 201 , "application没找到");
@@ -144,4 +150,26 @@ class ApplicationController extends BaseController
         return $this->renderJson($personers, 1 , 200, "");
     }
 
+    //设置报名开启状态
+    public function actionSet(){
+        $status = Yii::$app->request->post('status');
+        if(!isset($status))  
+            return $this->renderJson([] , 0 , 200 , "status参数没找到");
+        $model = Open::findOne('1');
+        $model->status = ($status==1 ? 1 : 0 );
+        if($model->save())
+            return $this->renderJson([] , 1 , 200 , "报名开启状态修改成功");
+        else
+            return $this->renderJson([] , 0 , 200 , "报名开启状态修改失败");
+    }
+
+    //返回报名开启状态 1为已开启 0为未开启
+    public function actionStatus(){
+        $model = Open::findOne('1');
+        $status = $model->status;
+        if($status == 1)
+            return $this->renderJson([],1,200,'报名状态已开启');
+        if($status == 0)
+            return $this->renderJson([],0,200,'报名状态已关闭');
+    }
 }
