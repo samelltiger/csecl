@@ -86,7 +86,6 @@ class Application extends \yii\db\ActiveRecord
 
     public static function getdate($direct,$type){
         $personers = (new \yii\db\Query())
-                ->select(['id','sex','name','address','grade','college','major','direct','english_grade','math_grade','referrer'])
                 ->from('application')
                 ->where(['direct'=>$direct])
                 ->orderBy('id')
