@@ -158,7 +158,11 @@ textarea {
     background-color: #dedede;
     color: #252525;
 }
-
+.bg-contact .menu-toggle span:after{
+    background-color: #252525;
+    border-color: #252525;
+    color: #fff;
+}
 .bg-contact input,
 .bg-contact textarea {
     border-color: #252525;
