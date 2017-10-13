@@ -20,7 +20,7 @@
 }
 /* 标题 */
 .home .title{
-    letter-spacing: 0px;
+    letter-spacing: 0;
     margin-bottom: 30px;
 }
 .home .title .word{
@@ -33,7 +33,6 @@
 }
 .home .image .img{
     width: 100%;
-    background: #fff;
 }
 .home .image .img img{
   display: block;
@@ -202,7 +201,7 @@
 .home .pi{
     width: 120px;
     height: 120px;
-    margin: 30px auto 50px auto;
+    margin: 10px auto 20px auto;
     text-align: center;
     border:2px solid rgba(255,255,255,0.7);
     background: rgba(0,0,0,0.1);
@@ -239,7 +238,7 @@
     line-height: 20px;
     padding: 0px 5px;
     margin-right: 10px;
-    letter-spacing: 0px;
+    letter-spacing: 0;
 }
 .home .info .say{
     margin-bottom: 10px;
@@ -259,17 +258,23 @@
 
 /* 荣誉和奖项 */
 
-.home .sysz .fame span{
-    font-size: 14px;
-    display: block;
+.home .sysz .fame p{
+    font-size: 12px;
     background: rgba(0,0,0,0.4);
     color: #fff;
+    display: flex;
     line-height: 25px;
     padding: 0px 8px;
     margin: 0 0 8px 0;
-    letter-spacing: 0px;
+    letter-spacing: 0;
 }
-
+.home .sysz .fame p .left{
+  flex: 1;
+}
+.home .sysz .fame p .right{
+  text-align: right;
+  flex: 120px 0 0;
+}
 /*====================================================
   services.css
 ====================================================*/
@@ -325,21 +330,28 @@
 .subscribe .row{
   margin-bottom: 40px;
 }
-.subscribe .image{
+.subscribe .image {
+  margin: 10px;
   padding: 10px;
+  background: rgba(255,255,255,0.4)
+}
+.subscribe .image .img{
+  width: 100%;
+}
+.subscribe .image .img img{
+  width: 100%;
+  display: block;
 }
 .subscribe .info{
-  padding: 10px;
   margin: 10px;
   border: 1px solid #555;
   background: rgba(255,255,255,0.1);
 }
 .subscribe p{
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 .subscribe .info-txt{
   font-size:16px;
-  margin-bottom: 15px;
   padding: 10px;
 }
 .subscribe .list-wrapper{
@@ -385,8 +397,8 @@
     text-indent: 5px;
     background: transparent;
   }
-  
-  
+
+
   .reg .line .task .icon{
     flex: 25px 0 0;
     text-align: center;
@@ -394,13 +406,7 @@
     font-size: 16px;
     
   }
-  .reg .line .task .icon:before{
-    border-color: transparent;
-    background-color: transparent; 
-    color: #333;
-  }
-  
-  
+
   .reg .line .task .title{
     line-height: 20px;
     margin-top: 0px;
@@ -417,12 +423,13 @@
   .reg .line .task:hover .title span.cue{
     opacity: 1;
   }
-  
-  
-  
-  .reg .line .task i.icon-ok{
+
+
+  .reg .steup i.icon-ok:before,
+  .reg .line .task i.icon-ok:before{
     color:#5597F5;
   }
+  .reg .steup i.icon-close:before,
   .reg .line .task i.icon-close:before{
     color:#d9534f;
   }
@@ -476,9 +483,9 @@
     display: none;
     color: #333
   }
-.reg .line .task .fx-info .info-word p{
+  .reg .line .task .fx-info .info-word p{
   margin: 0;
-}
+  }
   
   
   .reg .line .task .place{
@@ -571,8 +578,6 @@
     color: #d9534f;
     display: none;
   }
-  
-  
   .reg .ok-info{
     width: 100%;
     background: rgba(255,255,255,0.9);
@@ -680,3 +685,15 @@
     height: 70px;
     z-index: 10;
   }
+
+  /*.reg-notime{*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*top:0;*/
+    /*bottom:0;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+  /*}*/

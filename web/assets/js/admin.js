@@ -143,20 +143,23 @@ function showData(getToken) {
     url: '/v1/applications/show?role=api&token='+getToken,
     success: function(res){
       // token 匹配正确
+      var dataList = [];
       if (res.success === 'success') {
-        $.each(res.data, function (index, item) {
-          index = parseInt(index) + 1;
-          appendHtml +=
-            '<tr class="">' +
-            '<td class="fixed-50">' + index + '</td>' +
-            '<td>' + item.name + '</td>' +
-            '<td class="fixed-50">' + (item.sex === 1 ? '男' : '女') + '</td>' +
-            '<td>' + item.address + '</td>' +
-            '<td class="fixed-50">' + item.grade + '</td>' +
-            '<td>' + item.college + '</td>' +
-            '<td>' + item.major + '</td>' +
-            '<td class="fixed-50">' + item.direct + '</td>' +
-            '</tr>';
+        $.each(res.data,function (num,val) {
+          $.each(val, function (index, item) {
+            dataList.push(item);
+            appendHtml +=
+              '<tr class="">' +
+              '<td class="fixed-50">' + item.id + '</td>' +
+              '<td>' + item.name + '</td>' +
+              '<td class="fixed-50">' + (parseInt(item.sex) === 1 ? '男' : '女') + '</td>' +
+              '<td>' + item.address + '</td>' +
+              '<td class="fixed-50">' + item.grade + '</td>' +
+              '<td>' + item.college + '</td>' +
+              '<td>' + item.major + '</td>' +
+              '<td class="fixed-50">' + item.direct + '</td>' +
+              '</tr>';
+          });
         });
         $students.html('');
         $students.append(appendHtml);
@@ -176,10 +179,10 @@ function showData(getToken) {
             $getList.removeClass('select');
             $(this).addClass('select');
             // 右侧显示内容
-            var data = res.data[index];
+            var data = dataList[index];
             console.log(data);
             $getInfoDom.eq(0).text(data.name);
-            $getInfoDom.eq(1).text(data.sex === 1 ? '男' : '女');
+            $getInfoDom.eq(1).text(parseInt(data.sex) === 1 ? '男' : '女');
             $getInfoDom.eq(2).text(data.grade);
             $getInfoDom.eq(3).text(data.address);
             $getInfoDom.eq(4).text(data.college);

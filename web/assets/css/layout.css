@@ -1,0 +1,730 @@
+
+
+/*====================================================
+03. Basic Document Styles
+04. Colors
+05. Typography
+06. Header & Logo
+07. Navigation
+08. Sections
+10. Footer
+11. Animation
+12. Perfect Scrollbar
+13. Responsive
+====================================================*/
+
+/*====================================================
+03. Basic Document Styles
+====================================================*/
+body {
+    position: relative;
+    font-size: 20px;
+    line-height: 28px;
+    font-style: normal;
+    font-weight: normal;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    white-space: normal;
+}
+
+input,
+select {
+    font-size: 16px;
+    font-style: normal;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px 20px;
+    resize: both;
+}
+
+#awd-site-wrap.bg {
+    transition: background 0.5s;
+}
+
+#awd-site-canvas {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all, 0.6s;
+    opacity: 0.1;
+}
+
+.bordered #awd-site-wrap {
+    border-style: solid;
+    border-width: 20px;
+}
+
+#awd-site-wrap {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.awd-site-bg {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0;
+}
+
+.awd-site-bg.active {
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translate3d(0, 0, 0) scale3d(40, 40, 1);
+    -moz-transform: translate3d(0, 0, 0) scale3d(40, 40, 1);
+    -ms-transform: translate3d(0, 0, 0) scale3d(40, 40, 1);
+    transform: translate3d(0, 0, 0) scale3d(40, 40, 1);
+    -webkit-transition-property: width, height, border-radius, transform;
+    -moz-transition-property: width, height, border-radius, transform;
+    -o-transition-property: width, height, border-radius, transform;
+    transition-property: width, height, border-radius, transform;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    border-radius: 0;
+    z-index: 2;
+    display: block;
+    opacity: 1;
+}
+
+/*====================================================
+04. Colors
+====================================================*/
+
+/* Home */
+
+.bg-home,
+.bg-home nav:before {
+    background-color: #326394;
+    color: #ffffff;
+}
+.bg-home *:not(i):not(nav):after,
+.bg-home *:not(i):not(nav):before,
+.bg-home .btn:hover,
+.bg-home .btn-inverse {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #252525;
+}
+
+/* Subscribe */
+
+.bg-subscribe,
+.bg-subscribe nav:before {
+    background-color: #252525;
+    color: #ffffff;
+}
+
+.bg-subscribe *:not(i):not(nav):after,
+.bg-subscribe *:not(i):not(nav):before,
+.bg-subscribe .btn:hover,
+.bg-subscribe .btn-inverse {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #252525;
+}
+
+/* About */
+
+.bg-about,
+.bg-about nav:before {
+    background-color: #F44336;
+    color: #ffffff;
+}
+
+.bg-about *:not(i):not(nav):after,
+.bg-about *:not(i):not(nav):before {
+    background-color: #ffffff;
+}
+
+/* Contact */
+
+.bg-contact,
+.bg-contact nav:before {
+    background-color: #dedede;
+    color: #252525;
+}
+.bg-contact .menu-toggle span:after{
+    background-color: #252525;
+    border-color: #252525;
+    color: #fff;
+}
+.bg-contact input,
+.bg-contact textarea {
+    border-color: #252525;
+}
+
+/* Services */
+
+.bg-services,
+.bg-services nav:before {
+    background-color: #708090;
+    color: #ffffff;
+}
+
+.bg-services *:not(i):not(nav):after,
+.bg-services *:not(i):not(nav):before {
+    background-color: #ffffff;
+}
+
+/*====================================================
+05. Typography
+====================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+p.lead {
+    font-size: 26px;
+    line-height: 40px;
+}
+
+a, a > * {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover, a > *:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.text-default {
+    text-transform: inherit;
+}
+
+/*====================================================
+06. Header & Logo
+====================================================*/
+
+#awd-site-header {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    height: 32px;
+    z-index: 20;
+}
+
+#awd-site-logo {
+    float: left;
+    margin-left: 10px;
+}
+
+#awd-site-logo h1 {
+    font-family: "Quicksand", sans-serif;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+
+#awd-site-logo h1 > a {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+}
+
+#awd-site-logo h1 > a > i {
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/logo_w.png);
+    background-size: 100% 100%;
+    float: left;
+    margin-right: 10px;
+}
+#awd-site-logo h1 > a > i.wbg{
+    background-image: url(../images/logo_w.png);
+}
+#awd-site-logo h1 > a > i.bbg{
+    background-image: url(../images/logo_b.png);
+}
+#awd-site-logo h1 > a > span {
+    float: left;
+}
+
+/*====================================================
+07. Navigation
+====================================================*/
+
+#awd-site-nav {
+    position: relative;
+    float: right;
+    margin-right: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 13px;
+    right: 5px;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    z-index: 999;
+}
+
+.menu-toggle > span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin: 4px 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: -webkit-transform .35s, background .35s;
+    -moz-transition: -moz-transform .35s, background .35s;
+    -ms-transition: -ms-transform .35s, background .35s;
+    -o-transition: -o-transform .35s, background .35s;
+    transition: transform .35s, background .35s;
+}
+
+.menu-toggle > span:nth-child(1):after {
+    top: 0;
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%
+}
+
+.menu-toggle > span:nth-child(2):after {
+    top: 8px
+}
+
+.menu-toggle > span:nth-child(3):after {
+    top: 16px;
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%
+}
+
+.menu-toggle.opened > span:after {
+    width: 30px;
+}
+
+.menu-toggle.opened > span:nth-child(1):after {
+    -webkit-transform: translateX(1px) translateY(-2px) rotate(43deg);
+    -moz-transform: translateX(1px) translateY(-2px) rotate(43deg);
+    -ms-transform: translateX(1px) translateY(-2px) rotate(43deg);
+    -o-transform: translateX(1px) translateY(-2px) rotate(43deg);
+    transform: translateX(1px) translateY(-2px) rotate(43deg)
+}
+
+.menu-toggle.opened > span:nth-child(2):after {
+    display: none;
+}
+
+.menu-toggle.opened > span:nth-child(3):after {
+    -webkit-transform: translateX(1px) translateY(2px) rotate(-43deg);
+    -moz-transform: translateX(1px) translateY(2px) rotate(-43deg);
+    -ms-transform: translateX(1px) translateY(2px) rotate(-43deg);
+    -o-transform: translateX(1px) translateY(2px) rotate(-43deg);
+    transform: translateX(1px) translateY(2px) rotate(-43deg);
+}
+
+.navigation ul > li {
+    display: inline-block;
+    padding-left: 40px;
+}
+
+.navigation ul > li a {
+    position: relative;
+    display: block;
+    padding: 2px 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navigation ul > li a:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    opacity: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.navigation ul > li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    opacity: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.navigation ul > li a:hover:before,
+.navigation ul > li a.active:before,
+.navigation ul > li a:hover:after,
+.navigation ul > li a.active:after {
+    opacity: 1;
+}
+
+/*====================================================
+08. Sections
+====================================================*/
+
+#awd-site-main {
+
+    position: relative;
+    height: 100%;
+    z-index: 10;
+}
+
+#awd-site-content {
+    position: absolute;
+    top: 110px;
+    bottom: 80px;
+    left: 25px;
+    right: 25px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slides {
+    height: 100%;
+    width: 100%;
+    text-align: left
+}
+
+.slides-wrap {
+    height: 100%;
+    vertical-align: middle;
+}
+
+.slide-item {
+    display: none;
+    height: 0;
+}
+.slide-item.active {
+    display: block;
+    height: 100%;
+}
+
+.sections-block {
+    position: relative;
+    height: 100%;
+}
+
+/*====================================================
+10. Footer
+====================================================*/
+
+#awd-site-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+    height: 30px;
+    z-index: 20;
+}
+
+.copyright {
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.copyright p {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+/*====================================================
+11. Animations
+====================================================*/
+
+.start .animated {
+    visibility: hidden;
+}
+
+.start .visible {
+    visibility: visible;
+}
+
+/*==================================================
+12. Perfect Scrollbar
+==================================================*/
+.ps {
+    overflow: hidden !important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+}
+.ps__rail-x {
+    display: none;
+}
+  
+.ps__rail-y {
+    display: none;
+}
+@supports (-ms-overflow-style: none) {
+    .ps {
+        overflow: auto !important;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .ps {
+        overflow: auto !important;
+    }
+}
+
+/*====================================================
+13. Responsive
+====================================================*/
+@media only screen and (max-width: 992px) {
+
+    #awd-site-header {
+        top: 30px;
+        left: 30px;
+        right: 30px;
+    }
+
+    .navigation ul > li {
+        padding-left: 0px;
+    }
+
+    .navigation ul > li a {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    #awd-site-content {
+        top: 110px;
+        bottom: 90px;
+        left: 15px;
+        right: 15px;
+    }
+
+    #awd-site-footer {
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #awd-site-header {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    #awd-site-logo {
+        position: absolute;
+        float: none;
+        margin: 0;
+        z-index: 999;
+    }
+    .menu-toggle,
+    #awd-site-nav.active {
+        display: block;
+    }
+    #awd-site-nav {
+        text-align: center;
+        display: none;
+        table-layout: fixed;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 950;
+    }
+    #awd-site-nav:before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+    #awd-site-nav .nav-container {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        right: 15px;
+    }
+    .navigation ul > li {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .navigation ul > li a {
+        display: inline-block;
+        width: 70%;
+        border-width: 1px;
+        border-style: solid;
+        padding: 5px 0;
+        font-size: 16px;
+        letter-spacing: 0;
+    }
+    .navigation ul > li a:before,
+    .navigation ul > li a:after {
+        height: 1px;
+        -webkit-transform: scale(1) rotate(0deg);
+        -moz-transform: scale(1) rotate(0deg);
+        -ms-transform: scale(1) rotate(0deg);
+        -o-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+    .navigation ul > li a:hover:before,
+    .navigation ul > li a:hover:after,
+    .navigation ul > li a.active:before,
+    .navigation ul > li a.active:after{
+        -webkit-transform: scale(0.5) rotate(0deg);
+        -moz-transform: scale(0.5) rotate(0deg);
+        -ms-transform: scale(0.5) rotate(0deg);
+        -o-transform: scale(0.5) rotate(0deg);
+        transform: scale(0.5) rotate(0deg);
+    }
+    .navigation ul > li a:before {
+        left: 0;
+        top: 50%;
+        right: auto;
+        margin-left: -40px;
+        display: none;
+    }
+    .navigation ul > li a:after {
+        right: 0;
+        top: 50%;
+        left: auto;
+        margin-right: -40px;
+        display: none
+    }
+    #awd-site-content {
+        top: 80px;
+        bottom: 45px;
+        left: 0;
+        right: 0; 
+    }
+    #awd-site-footer {
+        left: 20px;
+        right: 20px;
+        bottom: 10px;
+        height: 30px;
+    }
+    .copyright p{
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #awd-site-content {
+        top: 60px;
+        bottom: 45px;
+        left: 0;
+        right: 0;
+    }
+    .menu-toggle {
+        top: 3px;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #awd-site-header {
+        height: 40px;
+        top: 15px;
+        left: 10px;
+        right: 10px;
+    }
+    #awd-site-content {
+        top: 60px;
+        bottom: 45px;
+        left: 0;
+        right: 0;
+    }
+}
