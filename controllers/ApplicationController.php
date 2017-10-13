@@ -16,7 +16,6 @@ class ApplicationController extends BaseController
     }
 
     //需不需要返回 总共有多少页
-
     //展示所有报名表  
     public function actionShow($page = 1){
     	//一页展示的数  $limit  
