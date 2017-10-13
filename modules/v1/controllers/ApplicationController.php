@@ -2,6 +2,7 @@
 namespace csecl\modules\v1\controllers;
 use csecl\models\Application;
 use csecl\models\Question;
+use csecl\models\Open;
 use yii\helpers\ArrayHelper;
 use csecl\modules\v1\controllers\common\BaseController;
 use Yii;
@@ -18,33 +19,33 @@ class ApplicationController extends BaseController
     //需不需要返回 总共有多少页
 
     //展示所有报名表  
-    public function actionShow(){
-    	//一页展示的数  $limit 
-        // if(!isset($page))  
-        //     return $this->renderJson([] , 0 , 201 , "page参数没找到");
-        // if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
-        // $page = $page -1;
-        // $limit = 10;
-        // $offset = $limit * $page;
-        // $count=Application::find()->count();
-        // if($count<10) $offset = 0;
-        $i=0;
-        $personers = (new \yii\db\Query())
-                ->from('application')
-                //->limit($limit)
-                ->orderBy('id')
-                //->offset($offset)
-                ->all();
-        if(!$personers)  return $this->renderJson([] , 0 , 404 , "资源不存在");
-        foreach ($personers as $personer) {
-            $question = Question::findOne(['appid'=>$personer['id']]);
-            $question = ArrayHelper::toArray($question, ['frontend\models\Question' => ['answer1','answer2','answer3','answer4','answer5','answer6'],]);
-            $personers[$i] = ArrayHelper::merge($personers[$i],$question);
-            $i++;
-        }
-        //$personers['totalpage'] = ceil($count/$limit);
-        return $this->renderJson($personers , 1 , 200 , []);
-    }
+    // public function actionShow(){
+    // 	//一页展示的数  $limit 
+    //     // if(!isset($page))  
+    //     //     return $this->renderJson([] , 0 , 201 , "page参数没找到");
+    //     // if($page == 0)  return $this->renderJson([] , 0 , 404 , "资源不存在");
+    //     // $page = $page -1;
+    //     // $limit = 10;
+    //     // $offset = $limit * $page;
+    //     // $count=Application::find()->count();
+    //     // if($count<10) $offset = 0;
+    //     $i=0;
+    //     $personers = (new \yii\db\Query())
+    //             ->from('application')
+    //             //->limit($limit)
+    //             ->orderBy('id')
+    //             //->offset($offset)
+    //             ->all();
+    //     if(!$personers)  return $this->renderJson([] , 0 , 404 , "资源不存在");
+    //     foreach ($personers as $personer) {
+    //         $question = Question::findOne(['appid'=>$personer['id']]);
+    //         $question = ArrayHelper::toArray($question, ['frontend\models\Question' => ['answer1','answer2','answer3','answer4','answer5','answer6'],]);
+    //         $personers[$i] = ArrayHelper::merge($personers[$i],$question);
+    //         $i++;
+    //     }
+    //     //$personers['totalpage'] = ceil($count/$limit);
+    //     return $this->renderJson($personers , 1 , 200 , []);
+    // }
 
     //展示单个报名表 by id
     public function actionGet($id){
@@ -107,6 +108,11 @@ class ApplicationController extends BaseController
 
     //填写报名
     public function actionCreateapp(){
+        //检测报名状态是否开启
+        $model = Open::findOne('1');
+        if(!$model->status)
+            return $this->renderJson([] , 0 , 200 , "当前时间未开启报名状态");
+
         $data = Yii::$app->request->post();
         if(!isset($data['application']))  
             return $this->renderJson([] , 0 , 201 , "application没找到");
@@ -136,4 +142,34 @@ class ApplicationController extends BaseController
        return $this->renderJson([] , 0 , 200, "学号未进行过提交"); 
     }
 
+    //按方向分组 orderby id
+    public function actionShow(){
+        $personers[1]= Application::getdate("程序","A");
+        $personers[2]= Application::getdate("前端","B");
+        $personers[3]= Application::getdate("产品","C");
+        return $this->renderJson($personers, 1 , 200, "");
+    }
+
+    //设置报名开启状态
+    public function actionSet(){
+        $status = Yii::$app->request->post('status');
+        if(!isset($status))  
+            return $this->renderJson([] , 0 , 200 , "status参数没找到");
+        $model = Open::findOne('1');
+        $model->status = ($status==1 ? 1 : 0 );
+        if($model->save())
+            return $this->renderJson([] , 1 , 200 , "报名开启状态修改成功");
+        else
+            return $this->renderJson([] , 0 , 200 , "报名开启状态修改失败");
+    }
+
+    //返回报名开启状态 1为已开启 0为未开启
+    public function actionStatus(){
+        $model = Open::findOne('1');
+        $status = $model->status;
+        if($status == 1)
+            return $this->renderJson([],1,200,'报名状态已开启');
+        if($status == 0)
+            return $this->renderJson([],0,200,'报名状态已关闭');
+    }
 }

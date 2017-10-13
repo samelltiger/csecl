@@ -3,18 +3,44 @@
 * 调用
 ===================================*/
 $(function () {
+  // 手机端的延迟问题
+  FastClick.attach(document.body);
   Menu();
-  ContentSlider();
+  // RegOK();
   ScorllBar();
+  ContentSlider(getDom());
   cavansLines();
+  $(window).resize(function(){
+    cavansLines();
+  });
 });
 
+/*===================================
+ * 先判断当前是否为报名状态状态
+ ===================================*/
+// function RegOK() {
+//   $.ajax({
+//     type:'get',
+//     url: 'v1/applications/status?role=api',
+//     success: function (data) {
+//       if(data.success==='success'){
+//         $('.contact-koo').remove('.reg-notime');
+//       }else {
+//         $('.contact-koo').remove('.reg');
+//         $('.reg-notime').text('现在非报名时间...');
+//       }
+//     },
+//     error: function () {
+//       $('.contact-koo').remove('.reg');
+//       $('.reg-notime').text('请求失败，请检查网络...');
+//     }
+//   });
+// }
 /*===================================
 * 和滚动组件配合使用获取的页面html片段
 * ContentSlider() 调用后使用dom
 ===================================*/
 
-var dom = getDom();
 function getDom() {
   var arr = ['home','subscribe','services','contact'];
   var dom = {};
@@ -63,7 +89,7 @@ function mScorllBar(dom) {
 * 切换动态
 ===================================*/
 
-function ContentSlider() {
+function ContentSlider(dom) {
   $('.slide-item').first().addClass('active');
   // 取到 背景容器
   var $bg = $('#bg');
@@ -112,10 +138,12 @@ function ContentSlider() {
     $.each($('.hide-show'),function (i,v) {
       mScorllBar(v);
     });
-
     // 调用表单的js
     if(goToSlide === 'contact'){
+      $('.logo').removeClass('wbg').addClass('bbg');
       upContact();
+    }else{
+      $('.logo').removeClass('bbg').addClass('wbg');
     }
   });
 }
@@ -125,7 +153,7 @@ function ContentSlider() {
 ===================================*/
 
 function upContact() {
-  // 引入china_cities.min.js 
+  // 引入china_cities.min.js
   var citMap = china_cities;
   var signup = {
     postData: '/v1/applications/createapp?role=api',
@@ -356,7 +384,7 @@ function upContact() {
   // 实时检查
   function checkedData() {
     // 姓名
-    checkedInput('#username', /^[\u4E00-\u9FA5]{2,4}$/);
+    checkedInput('#username', /^[\u4E00-\u9FA5]{2,8}$/);
     // 学号
     checkedInput('#student', /^20[1-9]\d{9}$/, 1);
     // 手机
@@ -556,5 +584,5 @@ function cavansLines(){
     awdCanvasDraw();
   })()
 }
-//
+
 

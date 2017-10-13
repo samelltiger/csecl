@@ -83,5 +83,23 @@ class Application extends \yii\db\ActiveRecord
             'updated' => 'Updated',
         ];
     }
+
+    public static function getdate($direct,$type){
+        $personers = (new \yii\db\Query())
+                ->select(['id','sex','name','address','grade','college','major','direct','english_grade','math_grade','referrer'])
+                ->from('application')
+                ->where(['direct'=>$direct])
+                ->orderBy('id')
+                ->all();
+        $i = 0;
+        foreach ($personers as $personer) {
+            $question = Question::findOne(['appid'=>$personer['id']]);
+            $question = ArrayHelper::toArray($question, ['frontend\models\Question' => ['answer1','answer2','answer3','answer4','answer5','answer6'],]);
+            $personers[$i] = ArrayHelper::merge($personers[$i],$question);
+            $personers[$i]['id'] = $type.("$i"+1);
+            $i++;
+        }
+        return $personers;
+    }
 }
 
