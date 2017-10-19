@@ -130,6 +130,91 @@ $(function () {
     });
   });
 });
+
+// 开启关闭报名
+$(function(){
+  $op1 = $('#op1');
+  $op2 = $('#op2');
+  $clis = $('.clis');
+  // 先获取状态
+  $.ajax({
+    type:'get',
+    url: 'v1/applications/status?role=api',
+    success: function (data) {
+      if(data.success==='success'){
+        $op1.attr('checked','checked');
+        $op2.removeAttr('checked');
+        $clis.text('当前为开启状态');
+      }else {
+        $op1.removeAttr('checked');
+        $op2.attr('checked','checked');
+        $clis.text('当前为关闭状态');
+      }
+    },
+    error: function () {
+      $op1.removeAttr('checked');
+      $op2.removeAttr('checked');
+      $clis.text('请求失败');
+    }
+  });
+  $op1.click(function(){
+    if($(this).attr('checked')){
+      return;
+    }
+    $.ajax({
+      type:'post',
+      url: 'v1/applications/set?role=api',
+      data: {
+        "status": $op1.val()
+      },
+      success: function(data){
+        if(data.success==='success'){
+          $op1.attr('checked','checked');
+          $op2.removeAttr('checked');
+          $clis.text('开启成功');
+        }else{
+          $op1.removeAttr('checked');
+          $op2.attr('checked','checked');
+          $clis.text('开启失败');
+        }
+      },
+      error: function(){
+        $op1.removeAttr('checked');
+        $op2.attr('checked','checked');
+        $clis.text('请求失败');
+      }
+    })
+  });
+  $op2.click(function(){
+    if($(this).attr('checked')){
+      return;
+    }
+    $.ajax({
+      type:'post',
+      url: 'v1/applications/set?role=api',
+      data: {
+        "status": $op2.val()
+      },
+      success: function(data){
+        if(data.success==='success'){
+          $op2.attr('checked','checked');
+          $op1.removeAttr('checked');
+          $clis.text('关闭成功');
+        }else{
+          $op2.removeAttr('checked');
+          $op1.attr('checked','checked');
+          $clis.text('关闭失败');
+        }
+      },
+      error: function(){
+        $op2.removeAttr('checked');
+        $op1.attr('checked','checked');
+        $clis.text('请求失败');
+      }
+    })
+  });
+});
+
 // 重复用到loading
 function showLoading() {
   $('.sign').html('<p><img src="./assets/images/loading.gif"></p><p><span>正在登录...</span></p></p>');
@@ -211,3 +296,5 @@ function showData(getToken) {
     }
   });
 }
+
+
