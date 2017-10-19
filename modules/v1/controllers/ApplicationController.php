@@ -112,12 +112,16 @@ class ApplicationController extends BaseController
         $model = Open::findOne('1');
         if(!$model->status)
             return $this->renderJson([] , 0 , 200 , "当前时间未开启报名状态");
-
+        
         $data = Yii::$app->request->post();
         if(!isset($data['application']))  
             return $this->renderJson([] , 0 , 201 , "application没找到");
         if(!isset($data['question']))  
             return $this->renderJson([] , 0 , 201 , "question没找到");
+        //检查是否重复报名 by number
+        $status = Application::find()->where(['number'=>$data['application']['number']])->Count();
+        if($status) return $this->renderJson([] , 0 , 200 , "学号已存在请勿重复提交");
+
         $model = new Application();
         $model->setAttributes($data['application']);
         $model->created = time();
