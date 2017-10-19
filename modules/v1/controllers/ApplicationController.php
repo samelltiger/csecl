@@ -112,6 +112,7 @@ class ApplicationController extends BaseController
         $model = Open::findOne('1');
         if(!$model->status)
             return $this->renderJson([] , 0 , 200 , "当前时间未开启报名状态");
+        
         $data = Yii::$app->request->post();
         if(!isset($data['application']))  
             return $this->renderJson([] , 0 , 201 , "application没找到");
