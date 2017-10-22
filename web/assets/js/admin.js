@@ -158,12 +158,13 @@ $(function(){
     }
   });
   $op1.click(function(){
+
     if($(this).attr('checked')){
       return;
     }
     $.ajax({
       type:'post',
-      url: 'v1/applications/set?role=api',
+      url: 'v1/applications/set?role=api&token='+$.cookie('token'),
       data: {
         "status": $op1.val()
       },
@@ -191,7 +192,7 @@ $(function(){
     }
     $.ajax({
       type:'post',
-      url: 'v1/applications/set?role=api',
+      url: 'v1/applications/set?role=api&token='+$.cookie('token'),
       data: {
         "status": $op2.val()
       },
