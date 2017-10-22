@@ -1,17 +1,12 @@
 <template>
   <div class="background">
-    <slot></slot>
+    <div class="bg-color"></div>
+    <div ref="canvas" class="canvas"></div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    created() {
-    
-    },
-    methods: {
-    
-    }
   }
 </script>
 
@@ -23,6 +18,5 @@
     right 0
     bottom 0
     background #326394
-  
 </style>
 

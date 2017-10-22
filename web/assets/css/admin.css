@@ -278,3 +278,15 @@
     font-size: 12px;
     min-height: 44px;
 }
+
+.openReg-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.openReg-wrapper .openReg{
+    padding: 20px;
+}
+.openReg-wrapper .clis{
+    padding: 10px 20px;
+}
