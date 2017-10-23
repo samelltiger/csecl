@@ -5,11 +5,17 @@
 $(function () {
   // 手机端的延迟问题
   FastClick.attach(document.body);
+  // 菜单
   Menu();
-  // RegOK();
+  // 判断是否为报名状态
+  regOk();
+  // 滚动
   ScorllBar();
+  // 内容切换显示
   ContentSlider(getDom());
+  // 调用canvas
   cavansLines();
+  // 当窗体大小变化的时候重置canvas
   $(window).resize(function(){
     cavansLines();
   });
@@ -18,24 +24,24 @@ $(function () {
 /*===================================
  * 先判断当前是否为报名状态状态
  ===================================*/
-// function RegOK() {
-//   $.ajax({
-//     type:'get',
-//     url: 'v1/applications/status?role=api',
-//     success: function (data) {
-//       if(data.success==='success'){
-//         $('.contact-koo').remove('.reg-notime');
-//       }else {
-//         $('.contact-koo').remove('.reg');
-//         $('.reg-notime').text('现在非报名时间...');
-//       }
-//     },
-//     error: function () {
-//       $('.contact-koo').remove('.reg');
-//       $('.reg-notime').text('请求失败，请检查网络...');
-//     }
-//   });
-// }
+var regIs;
+function regOk(){
+  $.ajax({
+    type:'get',
+    url: 'v1/applications/status?role=api',
+    success: function (data) {
+      if(data.success==='success'){
+        regIs = true;
+      }else {
+        regIs = false;
+      }
+    },
+    error: function () {
+      regIs = false;
+    }
+  });
+}
+
 /*===================================
 * 和滚动组件配合使用获取的页面html片段
 * ContentSlider() 调用后使用dom
@@ -138,10 +144,18 @@ function ContentSlider(dom) {
     $.each($('.hide-show'),function (i,v) {
       mScorllBar(v);
     });
+
     // 调用表单的js
     if(goToSlide === 'contact'){
+      // 因为logo是非svg图片所以采用兼容方式
       $('.logo').removeClass('wbg').addClass('bbg');
-      upContact();
+      // 判断当前是否是报名状态
+      if(regIs){
+        // 调用报名系统
+        upContact();
+      }else{
+        $('.submit').text('现在不是报名时间');
+      }
     }else{
       $('.logo').removeClass('bbg').addClass('wbg');
     }
@@ -292,6 +306,7 @@ function upContact() {
       }
     })
   }
+
   // 验证提交
   function postData() {
     var $okInfo = $('.ok-info');
@@ -405,7 +420,6 @@ function upContact() {
     $.each($('textarea'), function (index, value) {
       $(value).on('input', function () {
         // 去掉空格 去掉html
-        var str = $(this).val().replace(/[<|>]/g, "");
         var len = $.trim($(this).val().replace(/\s/g, "").replace(/[<|>]/g, "")).length;
         if (len < 20) {
           $(this).next().css('color', '#d9534f');
@@ -454,6 +468,7 @@ function upContact() {
       });
     }
   }
+
   // 执行
   selectClass();
   selectContry();
@@ -465,7 +480,7 @@ function upContact() {
 }
 
 /*===================================
-* 线条的 cavans
+* 线条的 canvas
 ===================================*/
 
 function cavansLines(){
